@@ -1,0 +1,12 @@
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/bin/Debug/net9.0/DLMS_Diplomka03.Shared.deps.json
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/bin/Debug/net9.0/DLMS_Diplomka03.Shared.dll
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/bin/Debug/net9.0/DLMS_Diplomka03.Shared.pdb
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/DLMS_Diplomka03.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/DLMS_Diplomka03.Shared.AssemblyInfoInputs.cache
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/DLMS_Diplomka03.Shared.AssemblyInfo.cs
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/DLMS_Diplomka03.Shared.csproj.CoreCompileInputs.cache
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/DLMS_Diplomka03.Shared.dll
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/refint/DLMS_Diplomka03.Shared.dll
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/DLMS_Diplomka03.Shared.pdb
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/ref/DLMS_Diplomka03.Shared.dll
+/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/DLMS_Diplomka03.Shared.csproj.AssemblyReference.cache

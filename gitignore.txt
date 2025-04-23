@@ -1,0 +1,64 @@
+# Build výsledky
+bin/
+obj/
+
+# Uživatelská nastavení IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Zálohy a dočasné soubory
+*.log
+*.bak
+*.tmp
+*.swp
+
+# Soubory generované systémem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Závislosti
+packages/
+*.nupkg
+
+# Nastavení rider/resharper
+.idea/
+*.DotSettings.user
+
+# MAUI specifické
+Platforms/**/bin/
+Platforms/**/obj/
+
+# Blazor/Avalonia specifické
+wwwroot/dist/
+wwwroot/build/
+node_modules/
+*.gz
+*.br
+
+# SQLite databáze (pokud je generovaná runtime)
+*.db
+*.sqlite
+
+# JetBrains Rider Cache
+.idea/
+
+# Publish výstup
+publish/
+*.app/
+*.apk
+*.aab
+
+# Docker
+*.pid
+*.container-id
+docker-compose.override.yml
+
+# Uživatelské přihlašovací údaje nebo tajné klíče
+secrets.json
+appsettings.*.json
+
