@@ -24,18 +24,6 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9BcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/Components/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Db3VudGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9Ib21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/Components/Pages/Weather.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9QYWdlcy9XZWF0aGVyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
 [/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9Sb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -47,15 +35,3 @@ build_metadata.AdditionalFiles.CssScope =
 [/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
-
-[/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/Component1.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50MS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-sntvzfe505
-
-[/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/Components/Layout/MainLayout.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTWFpbkxheW91dC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-d5zc9zp7qc
-
-[/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/Components/Layout/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9MYXlvdXQvTmF2TWVudS5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = b-hx069vff8y

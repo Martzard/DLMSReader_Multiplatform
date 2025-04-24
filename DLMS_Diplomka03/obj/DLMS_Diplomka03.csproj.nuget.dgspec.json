@@ -45,11 +45,7 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Components.WebView": {
-              "target": "Package",
-              "version": "[9.0.3, )"
-            },
-            "System.IO.Ports": {
+            "Microsoft.AspNetCore.Components.Web": {
               "target": "Package",
               "version": "[9.0.4, )"
             }

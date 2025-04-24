@@ -3,174 +3,13 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "DLMS_Diplomka03.aczslbwc6g.styles.css",
-      "AssetFile": "DLMS_Diplomka03.styles.css.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000544662309"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1835"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"r3ChZhEs3+JPi6HeL+MLW7jkFB2LSM8cu7UUACVSwf0=\""
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"6uJWlZp20JYI9J0bWweNfs9d4Zxvj3mS/b2KDdJkLQY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:42:47 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "aczslbwc6g"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-6uJWlZp20JYI9J0bWweNfs9d4Zxvj3mS/b2KDdJkLQY="
-        },
-        {
-          "Name": "label",
-          "Value": "DLMS_Diplomka03.styles.css"
-        }
-      ]
-    },
-    {
-      "Route": "DLMS_Diplomka03.aczslbwc6g.styles.css",
-      "AssetFile": "DLMS_Diplomka03.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "5973"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"6uJWlZp20JYI9J0bWweNfs9d4Zxvj3mS/b2KDdJkLQY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:42:47 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "aczslbwc6g"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-6uJWlZp20JYI9J0bWweNfs9d4Zxvj3mS/b2KDdJkLQY="
-        },
-        {
-          "Name": "label",
-          "Value": "DLMS_Diplomka03.styles.css"
-        }
-      ]
-    },
-    {
-      "Route": "DLMS_Diplomka03.aczslbwc6g.styles.css.gz",
-      "AssetFile": "DLMS_Diplomka03.styles.css.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1835"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"r3ChZhEs3+JPi6HeL+MLW7jkFB2LSM8cu7UUACVSwf0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:42:47 GMT"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "aczslbwc6g"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-r3ChZhEs3+JPi6HeL+MLW7jkFB2LSM8cu7UUACVSwf0="
-        },
-        {
-          "Name": "label",
-          "Value": "DLMS_Diplomka03.styles.css.gz"
-        }
-      ]
-    },
-    {
       "Route": "DLMS_Diplomka03.styles.css",
       "AssetFile": "DLMS_Diplomka03.styles.css.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000544662309"
+          "Quality": "0.010752688172"
         }
       ],
       "ResponseHeaders": [
@@ -188,7 +27,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1835"
+          "Value": "92"
         },
         {
           "Name": "Content-Type",
@@ -196,15 +35,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"r3ChZhEs3+JPi6HeL+MLW7jkFB2LSM8cu7UUACVSwf0=\""
+          "Value": "\"WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=\""
         },
         {
           "Name": "ETag",
-          "Value": "W/\"6uJWlZp20JYI9J0bWweNfs9d4Zxvj3mS/b2KDdJkLQY=\""
+          "Value": "W/\"6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:42:47 GMT"
+          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css>; rel=\"preload\"; as=\"style\""
         },
         {
           "Name": "Vary",
@@ -214,7 +57,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6uJWlZp20JYI9J0bWweNfs9d4Zxvj3mS/b2KDdJkLQY="
+          "Value": "sha256-6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA="
         }
       ]
     },
@@ -233,7 +76,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5973"
+          "Value": "93"
         },
         {
           "Name": "Content-Type",
@@ -241,17 +84,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6uJWlZp20JYI9J0bWweNfs9d4Zxvj3mS/b2KDdJkLQY=\""
+          "Value": "\"6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:42:47 GMT"
+          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css>; rel=\"preload\"; as=\"style\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6uJWlZp20JYI9J0bWweNfs9d4Zxvj3mS/b2KDdJkLQY="
+          "Value": "sha256-6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA="
         }
       ]
     },
@@ -274,7 +121,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1835"
+          "Value": "92"
         },
         {
           "Name": "Content-Type",
@@ -282,11 +129,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"r3ChZhEs3+JPi6HeL+MLW7jkFB2LSM8cu7UUACVSwf0=\""
+          "Value": "\"WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:42:47 GMT"
+          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
         },
         {
           "Name": "Vary",
@@ -296,7 +143,854 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-r3ChZhEs3+JPi6HeL+MLW7jkFB2LSM8cu7UUACVSwf0="
+          "Value": "sha256-WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY="
+        }
+      ]
+    },
+    {
+      "Route": "DLMS_Diplomka03.tbc647qgbz.styles.css",
+      "AssetFile": "DLMS_Diplomka03.styles.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.010752688172"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tbc647qgbz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA="
+        },
+        {
+          "Name": "label",
+          "Value": "DLMS_Diplomka03.styles.css"
+        }
+      ]
+    },
+    {
+      "Route": "DLMS_Diplomka03.tbc647qgbz.styles.css",
+      "AssetFile": "DLMS_Diplomka03.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "93"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tbc647qgbz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA="
+        },
+        {
+          "Name": "label",
+          "Value": "DLMS_Diplomka03.styles.css"
+        }
+      ]
+    },
+    {
+      "Route": "DLMS_Diplomka03.tbc647qgbz.styles.css.gz",
+      "AssetFile": "DLMS_Diplomka03.styles.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tbc647qgbz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY="
+        },
+        {
+          "Name": "label",
+          "Value": "DLMS_Diplomka03.styles.css.gz"
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000542888165"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1841"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0="
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5994"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0="
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css.gz",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1841"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI="
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000542888165"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1841"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uitlrilihu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css"
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "5994"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uitlrilihu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css"
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css.gz",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1841"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uitlrilihu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css.gz"
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/background.png",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/background.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 19:55:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY="
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/background.x2rx4ajns0.png",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/background.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "378"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 19:55:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "x2rx4ajns0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/DLMS_Diplomka03.Shared/background.png"
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.6pqz8bsss0.js",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005263157895"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "189"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aYNptONJMs7gcAstEtyrIJXp9vGaShjgZdjZC6IcexU=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 19:55:45 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6pqz8bsss0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js"
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.6pqz8bsss0.js",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 19:55:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6pqz8bsss0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js"
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.6pqz8bsss0.js.gz",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "189"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aYNptONJMs7gcAstEtyrIJXp9vGaShjgZdjZC6IcexU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 19:55:45 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6pqz8bsss0"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-aYNptONJMs7gcAstEtyrIJXp9vGaShjgZdjZC6IcexU="
+        },
+        {
+          "Name": "label",
+          "Value": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js.gz"
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.005263157895"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "189"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aYNptONJMs7gcAstEtyrIJXp9vGaShjgZdjZC6IcexU=\""
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 19:55:45 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4="
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "247"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 19:55:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-FrrTtczTUEHjkhc/zWRPC7CmxeXI0JCZGc1+76qQ8B4="
+        }
+      ]
+    },
+    {
+      "Route": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js.gz",
+      "AssetFile": "_content/DLMS_Diplomka03.Shared/exampleJsInterop.js.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "189"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"aYNptONJMs7gcAstEtyrIJXp9vGaShjgZdjZC6IcexU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 23 Apr 2025 19:55:45 GMT"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-aYNptONJMs7gcAstEtyrIJXp9vGaShjgZdjZC6IcexU="
         }
       ]
     },
@@ -721,7 +1415,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:41:35 GMT"
+          "Value": "Thu, 24 Apr 2025 17:32:12 GMT"
         },
         {
           "Name": "Vary",
@@ -770,7 +1464,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:41:35 GMT"
+          "Value": "Thu, 24 Apr 2025 17:32:12 GMT"
         }
       ],
       "EndpointProperties": [
@@ -819,7 +1513,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:41:35 GMT"
+          "Value": "Thu, 24 Apr 2025 17:32:12 GMT"
         },
         {
           "Name": "Vary",
@@ -882,7 +1576,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:41:35 GMT"
+          "Value": "Thu, 24 Apr 2025 17:32:12 GMT"
         },
         {
           "Name": "Vary",
@@ -923,7 +1617,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:41:35 GMT"
+          "Value": "Thu, 24 Apr 2025 17:32:12 GMT"
         }
       ],
       "EndpointProperties": [
@@ -964,7 +1658,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 23 Apr 2025 18:41:35 GMT"
+          "Value": "Thu, 24 Apr 2025 17:32:12 GMT"
         },
         {
           "Name": "Vary",

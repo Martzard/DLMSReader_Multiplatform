@@ -15,6 +15,7 @@ class Program
 
             appBuilder.RootComponents.Add<App>("app");
 
+
             var app = appBuilder.Build();
 
             app.MainWindow.SetTitle("Photino Blazor Sample");

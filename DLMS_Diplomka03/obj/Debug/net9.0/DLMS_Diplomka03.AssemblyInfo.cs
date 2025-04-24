@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DLMS_Diplomka03")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6c4fa33eadb91604486ff205dffa864f3a7ee136")]
 [assembly: System.Reflection.AssemblyProductAttribute("DLMS_Diplomka03")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DLMS_Diplomka03")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

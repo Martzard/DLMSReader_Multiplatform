@@ -1,0 +1,37 @@
+{
+  "Files": [
+    {
+      "Id": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/scopedcss/projectbundle/DLMS_Diplomka03.Shared.bundle.scp.css",
+      "PackagePath": "staticwebassets/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css"
+    },
+    {
+      "Id": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/wwwroot/background.png",
+      "PackagePath": "staticwebassets/background.png"
+    },
+    {
+      "Id": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/wwwroot/exampleJsInterop.js",
+      "PackagePath": "staticwebassets/exampleJsInterop.js"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.DLMS_Diplomka03.Shared.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.DLMS_Diplomka03.Shared.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.DLMS_Diplomka03.Shared.props",
+      "PackagePath": "build\\DLMS_Diplomka03.Shared.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.DLMS_Diplomka03.Shared.props",
+      "PackagePath": "buildMultiTargeting\\DLMS_Diplomka03.Shared.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.DLMS_Diplomka03.Shared.props",
+      "PackagePath": "buildTransitive\\DLMS_Diplomka03.Shared.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
