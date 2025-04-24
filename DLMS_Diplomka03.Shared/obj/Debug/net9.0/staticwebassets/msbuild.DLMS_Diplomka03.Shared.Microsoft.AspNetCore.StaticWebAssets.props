@@ -18,23 +18,23 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\background.png'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css'))">
       <SourceType>Package</SourceType>
       <SourceId>DLMS_Diplomka03.Shared</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/DLMS_Diplomka03.Shared</BasePath>
-      <RelativePath>DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css</RelativePath>
+      <RelativePath>DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>Reference</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ProjectBundle</AssetTraitValue>
-      <Fingerprint>uitlrilihu</Fingerprint>
-      <Integrity>SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=</Integrity>
+      <Fingerprint>cndwof5drw</Fingerprint>
+      <Integrity>6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\exampleJsInterop.js'))">
       <SourceType>Package</SourceType>

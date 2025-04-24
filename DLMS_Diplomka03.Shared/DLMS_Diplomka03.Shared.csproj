@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Gurux.Common" Version="8.4.2503.602" />
+    <PackageReference Include="Gurux.DLMS" Version="9.0.2503.2001" />
+    <PackageReference Include="Gurux.Net" Version="8.4.2503.1001" />
+    <PackageReference Include="Gurux.Serial" Version="8.4.2503.603" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.4" />
   </ItemGroup>
 

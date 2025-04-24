@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6FRDF5wuGLY5J7KbugtWn4ZL2p2xuAboNR5lP/RzJx4=",
+  "Hash": "Kngd2DUVa1+hkxsnVlLVb8z0Vn/4hfn6LPjyT8BVp6Y=",
   "Source": "DLMS_Diplomka03",
   "BasePath": "_content/DLMS_Diplomka03",
   "Mode": "Default",
@@ -36,12 +36,12 @@
   ],
   "Assets": [
     {
-      "Identity": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-uitlrilihu.gz",
+      "Identity": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-cndwof5drw.gz",
       "SourceId": "DLMS_Diplomka03.Shared",
       "SourceType": "Project",
       "ContentRoot": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/DLMS_Diplomka03.Shared",
-      "RelativePath": "DLMS_Diplomka03.Shared#[.{fingerprint=uitlrilihu}]!.bundle.scp.css.gz",
+      "RelativePath": "DLMS_Diplomka03.Shared#[.{fingerprint=cndwof5drw}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -50,11 +50,11 @@
       "RelatedAsset": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/scopedcss/projectbundle/DLMS_Diplomka03.Shared.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "tcflsr9z0c",
-      "Integrity": "/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=",
+      "Fingerprint": "jfm6auc41n",
+      "Integrity": "D/lul/++NVwv64AT15GANFsRfLCtioBYS7xfIGDuSjk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-uitlrilihu.gz"
+      "OriginalItemSpec": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-cndwof5drw.gz"
     },
     {
       "Identity": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/g28b8xp6yr-6pqz8bsss0.gz",
@@ -92,8 +92,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "uitlrilihu",
-      "Integrity": "SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=",
+      "Fingerprint": "cndwof5drw",
+      "Integrity": "6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/scopedcss/projectbundle/DLMS_Diplomka03.Shared.bundle.scp.css"
@@ -603,12 +603,12 @@
       "OriginalItemSpec": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js"
     },
     {
-      "Identity": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-tbc647qgbz.gz",
+      "Identity": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-ih0qjl6q9o.gz",
       "SourceId": "DLMS_Diplomka03",
       "SourceType": "Computed",
       "ContentRoot": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/DLMS_Diplomka03",
-      "RelativePath": "DLMS_Diplomka03#[.{fingerprint=tbc647qgbz}]?.styles.css.gz",
+      "RelativePath": "DLMS_Diplomka03#[.{fingerprint=ih0qjl6q9o}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -617,8 +617,8 @@
       "RelatedAsset": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/scopedcss/bundle/DLMS_Diplomka03.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "m4kbs5xg19",
-      "Integrity": "WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=",
+      "Fingerprint": "2sfuetml1g",
+      "Integrity": "Yq2oEfhvHmxjGTBllCjAjrACgPfU3VPQ06oLwiPu7Ik=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/scopedcss/bundle/DLMS_Diplomka03.styles.css"
@@ -1142,8 +1142,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "tbc647qgbz",
-      "Integrity": "6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=",
+      "Fingerprint": "ih0qjl6q9o",
+      "Integrity": "CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/scopedcss/bundle/DLMS_Diplomka03.styles.css"
@@ -2221,12 +2221,12 @@
     },
     {
       "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-uitlrilihu.gz",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-cndwof5drw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000542888165"
+          "Quality": "0.000562429696"
         }
       ],
       "ResponseHeaders": [
@@ -2244,15 +2244,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1841"
+          "Value": "1777"
         },
         {
           "Name": "ETag",
-          "Value": "\"/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=\""
+          "Value": "\"D/lul/++NVwv64AT15GANFsRfLCtioBYS7xfIGDuSjk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+          "Value": "Thu, 24 Apr 2025 18:54:23 GMT"
         },
         {
           "Name": "Vary",
@@ -2264,13 +2264,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=\""
+          "Value": "W/\"6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0="
+          "Value": "sha256-6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4="
         }
       ]
     },
@@ -2289,7 +2289,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5994"
+          "Value": "5786"
         },
         {
           "Name": "Content-Type",
@@ -2297,23 +2297,23 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=\""
+          "Value": "\"6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+          "Value": "Thu, 24 Apr 2025 18:54:23 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0="
+          "Value": "sha256-6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4="
         }
       ]
     },
     {
       "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css.gz",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-uitlrilihu.gz",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-cndwof5drw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2330,7 +2330,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1841"
+          "Value": "1777"
         },
         {
           "Name": "Content-Type",
@@ -2338,11 +2338,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=\""
+          "Value": "\"D/lul/++NVwv64AT15GANFsRfLCtioBYS7xfIGDuSjk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+          "Value": "Thu, 24 Apr 2025 18:54:23 GMT"
         },
         {
           "Name": "Vary",
@@ -2352,18 +2352,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI="
+          "Value": "sha256-D/lul/++NVwv64AT15GANFsRfLCtioBYS7xfIGDuSjk="
         }
       ]
     },
     {
-      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-uitlrilihu.gz",
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-cndwof5drw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000542888165"
+          "Quality": "0.000562429696"
         }
       ],
       "ResponseHeaders": [
@@ -2381,15 +2381,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1841"
+          "Value": "1777"
         },
         {
           "Name": "ETag",
-          "Value": "\"/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=\""
+          "Value": "\"D/lul/++NVwv64AT15GANFsRfLCtioBYS7xfIGDuSjk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+          "Value": "Thu, 24 Apr 2025 18:54:23 GMT"
         },
         {
           "Name": "Vary",
@@ -2401,17 +2401,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=\""
+          "Value": "W/\"6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "uitlrilihu"
+          "Value": "cndwof5drw"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0="
+          "Value": "sha256-6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4="
         },
         {
           "Name": "label",
@@ -2420,7 +2420,7 @@
       ]
     },
     {
-      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css",
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css",
       "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/scopedcss/projectbundle/DLMS_Diplomka03.Shared.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2434,7 +2434,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5994"
+          "Value": "5786"
         },
         {
           "Name": "Content-Type",
@@ -2442,21 +2442,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0=\""
+          "Value": "\"6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+          "Value": "Thu, 24 Apr 2025 18:54:23 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "uitlrilihu"
+          "Value": "cndwof5drw"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-SiT3GmgqjlPG4ADwGkqJLGJEfeV91E0rZn8Zaqs7DY0="
+          "Value": "sha256-6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4="
         },
         {
           "Name": "label",
@@ -2465,8 +2465,8 @@
       ]
     },
     {
-      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css.gz",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-uitlrilihu.gz",
+      "Route": "_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css.gz",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03.Shared/obj/Debug/net9.0/compressed/7q20wm7gbl-cndwof5drw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2483,7 +2483,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1841"
+          "Value": "1777"
         },
         {
           "Name": "Content-Type",
@@ -2491,11 +2491,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI=\""
+          "Value": "\"D/lul/++NVwv64AT15GANFsRfLCtioBYS7xfIGDuSjk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:33:25 GMT"
+          "Value": "Thu, 24 Apr 2025 18:54:23 GMT"
         },
         {
           "Name": "Vary",
@@ -2505,11 +2505,11 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "uitlrilihu"
+          "Value": "cndwof5drw"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-/Xh21Tayu1YF3McFhPdDmSnypRI76nKWRpymllHShGI="
+          "Value": "sha256-D/lul/++NVwv64AT15GANFsRfLCtioBYS7xfIGDuSjk="
         },
         {
           "Name": "label",
@@ -3114,8 +3114,8 @@
       ]
     },
     {
-      "Route": "DLMS_Diplomka03.styles.css",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-tbc647qgbz.gz",
+      "Route": "DLMS_Diplomka03.ih0qjl6q9o.styles.css",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-ih0qjl6q9o.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -3134,156 +3134,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=\""
+          "Value": "\"Yq2oEfhvHmxjGTBllCjAjrACgPfU3VPQ06oLwiPu7Ik=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=\""
-        },
-        {
-          "Name": "Link",
-          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css>; rel=\"preload\"; as=\"style\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA="
-        }
-      ]
-    },
-    {
-      "Route": "DLMS_Diplomka03.styles.css",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/scopedcss/bundle/DLMS_Diplomka03.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "93"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
-        },
-        {
-          "Name": "Link",
-          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css>; rel=\"preload\"; as=\"style\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA="
-        }
-      ]
-    },
-    {
-      "Route": "DLMS_Diplomka03.styles.css.gz",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-tbc647qgbz.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "92"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY="
-        }
-      ]
-    },
-    {
-      "Route": "DLMS_Diplomka03.tbc647qgbz.styles.css",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-tbc647qgbz.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.010752688172"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "92"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
+          "Value": "Thu, 24 Apr 2025 18:08:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3303,21 +3158,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=\""
+          "Value": "W/\"CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to=\""
         },
         {
           "Name": "Link",
-          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css>; rel=\"preload\"; as=\"style\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tbc647qgbz"
+          "Value": "ih0qjl6q9o"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA="
+          "Value": "sha256-CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to="
         },
         {
           "Name": "label",
@@ -3326,7 +3181,7 @@
       ]
     },
     {
-      "Route": "DLMS_Diplomka03.tbc647qgbz.styles.css",
+      "Route": "DLMS_Diplomka03.ih0qjl6q9o.styles.css",
       "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/scopedcss/bundle/DLMS_Diplomka03.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3348,25 +3203,25 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA=\""
+          "Value": "\"CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
+          "Value": "Thu, 24 Apr 2025 18:08:10 GMT"
         },
         {
           "Name": "Link",
-          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.uitlrilihu.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css>; rel=\"preload\"; as=\"style\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tbc647qgbz"
+          "Value": "ih0qjl6q9o"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6SO4and5AEwxulJg7dVaOZcV16dGaQ1/AUyS7yFFSPA="
+          "Value": "sha256-CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to="
         },
         {
           "Name": "label",
@@ -3375,8 +3230,8 @@
       ]
     },
     {
-      "Route": "DLMS_Diplomka03.tbc647qgbz.styles.css.gz",
-      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-tbc647qgbz.gz",
+      "Route": "DLMS_Diplomka03.ih0qjl6q9o.styles.css.gz",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-ih0qjl6q9o.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3393,11 +3248,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY=\""
+          "Value": "\"Yq2oEfhvHmxjGTBllCjAjrACgPfU3VPQ06oLwiPu7Ik=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 17:53:40 GMT"
+          "Value": "Thu, 24 Apr 2025 18:08:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3415,7 +3270,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tbc647qgbz"
+          "Value": "ih0qjl6q9o"
         },
         {
           "Name": "label",
@@ -3423,7 +3278,152 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WuV6IylL7nPhSGBtkPQYl6Jk7/uwDLdFZWyACWNJ3CY="
+          "Value": "sha256-Yq2oEfhvHmxjGTBllCjAjrACgPfU3VPQ06oLwiPu7Ik="
+        }
+      ]
+    },
+    {
+      "Route": "DLMS_Diplomka03.styles.css",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-ih0qjl6q9o.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.010752688172"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Yq2oEfhvHmxjGTBllCjAjrACgPfU3VPQ06oLwiPu7Ik=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 18:08:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to=\""
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to="
+        }
+      ]
+    },
+    {
+      "Route": "DLMS_Diplomka03.styles.css",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/scopedcss/bundle/DLMS_Diplomka03.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "93"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 18:08:10 GMT"
+        },
+        {
+          "Name": "Link",
+          "Value": "<_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css>; rel=\"preload\"; as=\"style\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CjQhOx+5/gbTk08iyRGSm7Mwj75CYvEWCN04JK5y1to="
+        }
+      ]
+    },
+    {
+      "Route": "DLMS_Diplomka03.styles.css.gz",
+      "AssetFile": "/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-ih0qjl6q9o.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "92"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Yq2oEfhvHmxjGTBllCjAjrACgPfU3VPQ06oLwiPu7Ik=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 18:08:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Yq2oEfhvHmxjGTBllCjAjrACgPfU3VPQ06oLwiPu7Ik="
         }
       ]
     },

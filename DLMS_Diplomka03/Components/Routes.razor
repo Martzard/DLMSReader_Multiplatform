@@ -1,10 +1,6 @@
-<Router AppAssembly="@typeof(Program).Assembly"
-        AdditionalAssemblies="@(new[] { typeof(DLMS_Diplomka03.Shared.Marker).Assembly })">
-
+<Router AppAssembly="@typeof(DLMS_Diplomka03.Shared.Marker).Assembly">
     <Found Context="routeData">
-        <RouteView RouteData="routeData"
-                   DefaultLayout="@typeof(DLMS_Diplomka03.Shared.Components.Layout.MainLayout)" />
-        <FocusOnNavigate RouteData="routeData" Selector="h1" />
-    </Found>
+        <RouteView RouteData="routeData" />
 
+    </Found>
 </Router>

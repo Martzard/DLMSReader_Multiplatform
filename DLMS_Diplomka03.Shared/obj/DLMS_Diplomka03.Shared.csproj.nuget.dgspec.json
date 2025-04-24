@@ -45,6 +45,22 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Gurux.Common": {
+              "target": "Package",
+              "version": "[8.4.2503.602, )"
+            },
+            "Gurux.DLMS": {
+              "target": "Package",
+              "version": "[9.0.2503.2001, )"
+            },
+            "Gurux.Net": {
+              "target": "Package",
+              "version": "[8.4.2503.1001, )"
+            },
+            "Gurux.Serial": {
+              "target": "Package",
+              "version": "[8.4.2503.603, )"
+            },
             "Microsoft.AspNetCore.Components.Web": {
               "target": "Package",
               "version": "[9.0.4, )"

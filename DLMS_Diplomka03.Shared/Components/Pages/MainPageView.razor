@@ -1,0 +1,137 @@
+﻿@page "/"
+@using DLMS_Diplomka03.Shared.Components.Models
+@using DLMS_Diplomka03.Shared.Components.ViewModels
+@using Gurux.DLMS.Enums
+@inject DeviceDataViewModel ViewModel
+@inject NavigationManager Nav
+
+<div style="display:flex;height:100vh;overflow:hidden;">
+
+    <!-- Levý panel -->
+    <div style="width:250px;background-color:#f9f9f9;border-right:1px solid #ccc;display:flex;flex-direction:column;">
+
+        <!-- Horní lišta s tlačítky -->
+        <div style="padding:10px;border-bottom:1px solid #ccc;">
+            <button @onclick="NavigateToAddPage"
+                    style="width:100%;margin-bottom:5px;background-color:mediumseagreen;color:white;border:none;padding:8px;border-radius:5px;">
+                Přidat
+            </button>
+            <button @onclick="OnRemoveClicked"
+                    style="width:100%;background-color:firebrick;color:white;border:none;padding:8px;border-radius:5px;">
+                Odstranit
+            </button>
+        </div>
+
+        <!-- Seznam zařízení -->
+        <div style="padding:10px;overflow-y:auto;flex-grow:1;">
+            <h4>Zařízení</h4>
+            @if (ViewModel.AllDevices.Count == 0)
+            {
+                <p><em>Žádné zařízení zatím nebylo přidáno.</em></p>
+            }
+            else
+            {
+                <ul class="device-list">
+                    @foreach (var device in ViewModel.AllDevices)
+                    {
+                        <li @onclick="() => SelectDevice(device)"
+                            class="@(ViewModel.SelectedDevice == device ? "selected" : "")">
+                            <strong>@device.Name</strong><br />
+                            <small>@device.CollectionViewDetailString</small>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
+
+    <!-- Pravý panel -->
+    <div style="flex-grow:1;padding:20px;overflow-y:auto;">
+        @if (ViewModel.SelectedDevice != null)
+        {
+            @switch (ViewModel.SelectedDevice.InterfaceType)
+            {
+                case InterfaceType.WRAPPER:
+                {
+                    <h4>Selected Device</h4>
+                    <p><strong>Name:</strong> @ViewModel.SelectedDevice.Name</p>
+                    <p><strong>Interface type:</strong> @ViewModel.SelectedDevice.InterfaceType</p>
+                    <p><strong>Server Address:</strong> @ViewModel.SelectedDevice.ServerAddress</p>
+                    <p><strong>Port:</strong> @ViewModel.SelectedDevice.Port</p>
+                    <p><strong>Logical Name Referencing:</strong> @ViewModel.SelectedDevice.LogicalNameReferencing</p>
+                    break;
+                }
+
+                case InterfaceType.HdlcWithModeE:
+                case InterfaceType.HDLC:
+                {
+                    <h4>Selected Device</h4>
+                    <p><strong>Name:</strong> @ViewModel.SelectedDevice.Name</p>
+                    <p><strong>Interface type:</strong> @ViewModel.SelectedDevice.InterfaceType</p>
+                    <p><strong>COM Port:</strong> @ViewModel.SelectedDevice.SerialPort</p>
+                    <p><strong>Baud Rate:</strong> @ViewModel.SelectedDevice.BaudRate</p>
+                    <p><strong>Data bits:</strong> @ViewModel.SelectedDevice.DataBits</p>
+                    <p><strong>Stop bits:</strong> @ViewModel.SelectedDevice.StopBits</p>
+                    <p><strong>Parity:</strong> @ViewModel.SelectedDevice.Parity</p>
+                    <p><strong>Logical Name Referencing:</strong> @ViewModel.SelectedDevice.LogicalNameReferencing</p>
+                    break;
+                }
+
+                default:
+                {
+                    <h4>Selected Device - Default</h4>
+                    <p><strong>Name:</strong> @ViewModel.SelectedDevice.Name</p>
+                    <p><strong>Interface type:</strong> @ViewModel.SelectedDevice.InterfaceType</p>
+                    break;
+                }
+            }
+
+            <button @onclick="NavigateToConnectPage"
+                    style="margin-top:20px;background-color:dodgerblue;color:white;border:none;padding:10px 15px;border-radius:6px;">
+                Připojit
+            </button>
+        }
+        else
+        {
+            <p><em>Vyber zařízení ze seznamu vlevo.</em></p>
+        }
+    </div>
+</div>
+
+<style>
+    .device-list { list-style:none;padding:0;margin:0; }
+    .device-list li {
+        padding:10px;border:1px solid #ccc;margin-bottom:5px;border-radius:6px;
+        cursor:pointer;transition:background 0.2s ease;
+    }
+    .device-list li:hover { background-color:#f1f1f1; }
+    .device-list li.selected { background-color:#d0ebff;border-color:#74c0fc; }
+</style>
+
+@code {
+    private void SelectDevice(DLMSDeviceModel device)
+    {
+        ViewModel.SelectedDevice = device;
+        StateHasChanged();
+    }
+
+    private void NavigateToConnectPage()
+    {
+        if (ViewModel.SelectedDevice != null)
+            Nav.NavigateTo($"/connect-device/{ViewModel.SelectedDevice.Name}");
+    }
+
+    private void NavigateToAddPage() => Nav.NavigateTo("/add-device");
+
+    private void OnRemoveClicked() => ViewModel.RemoveSelectedDevice();
+
+    protected override void OnInitialized()
+    {
+        if (ViewModel.AllDevices.Count == 0)
+        {
+            ViewModel.AddDevice(new DLMSDeviceModel("Basic device", "127.0.0.1", 4059, InterfaceType.WRAPPER, true, 1, 1, 1));
+            ViewModel.AddDevice(new DLMSDeviceModel("Basic device 1", "127.0.0.2", 4059, InterfaceType.WRAPPER, true, 1, 1, 1));
+            ViewModel.AddDevice(new DLMSDeviceModel("Basic device 2", "123.123.123.123", 4059, InterfaceType.WRAPPER, true, 1, 1, 1));
+        }
+    }
+}

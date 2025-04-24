@@ -8,10 +8,559 @@
     ".NETCoreApp,Version=v9.0": {
       "DLMS_Diplomka03.Shared/1.0.0": {
         "dependencies": {
+          "Gurux.Common": "8.4.2503.602",
+          "Gurux.DLMS": "9.0.2503.2001",
+          "Gurux.Net": "8.4.2503.1001",
+          "Gurux.Serial": "8.4.2503.603",
           "Microsoft.AspNetCore.Components.Web": "9.0.4"
         },
         "runtime": {
           "DLMS_Diplomka03.Shared.dll": {}
+        }
+      },
+      "Gurux.Common/8.4.2503.602": {
+        "dependencies": {
+          "System.Resources.Extensions": "9.0.2"
+        },
+        "runtime": {
+          "lib/net9.0/Gurux.Common.dll": {
+            "assemblyVersion": "8.4.2503.602",
+            "fileVersion": "8.4.2503.602"
+          }
+        },
+        "resources": {
+          "lib/net9.0/af/Gurux.Common.resources.dll": {
+            "locale": "af"
+          },
+          "lib/net9.0/ar/Gurux.Common.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net9.0/az/Gurux.Common.resources.dll": {
+            "locale": "az"
+          },
+          "lib/net9.0/be/Gurux.Common.resources.dll": {
+            "locale": "be"
+          },
+          "lib/net9.0/bg/Gurux.Common.resources.dll": {
+            "locale": "bg"
+          },
+          "lib/net9.0/bn/Gurux.Common.resources.dll": {
+            "locale": "bn"
+          },
+          "lib/net9.0/ca/Gurux.Common.resources.dll": {
+            "locale": "ca"
+          },
+          "lib/net9.0/cs/Gurux.Common.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net9.0/cy/Gurux.Common.resources.dll": {
+            "locale": "cy"
+          },
+          "lib/net9.0/da/Gurux.Common.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net9.0/de/Gurux.Common.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net9.0/el/Gurux.Common.resources.dll": {
+            "locale": "el"
+          },
+          "lib/net9.0/es/Gurux.Common.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net9.0/et/Gurux.Common.resources.dll": {
+            "locale": "et"
+          },
+          "lib/net9.0/eu/Gurux.Common.resources.dll": {
+            "locale": "eu"
+          },
+          "lib/net9.0/fa/Gurux.Common.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net9.0/fi/Gurux.Common.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net9.0/fr/Gurux.Common.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net9.0/ga/Gurux.Common.resources.dll": {
+            "locale": "ga"
+          },
+          "lib/net9.0/gl/Gurux.Common.resources.dll": {
+            "locale": "gl"
+          },
+          "lib/net9.0/gu/Gurux.Common.resources.dll": {
+            "locale": "gu"
+          },
+          "lib/net9.0/hi/Gurux.Common.resources.dll": {
+            "locale": "hi"
+          },
+          "lib/net9.0/hr/Gurux.Common.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/net9.0/hu/Gurux.Common.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net9.0/id/Gurux.Common.resources.dll": {
+            "locale": "id"
+          },
+          "lib/net9.0/is/Gurux.Common.resources.dll": {
+            "locale": "is"
+          },
+          "lib/net9.0/it/Gurux.Common.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net9.0/ja/Gurux.Common.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net9.0/ka/Gurux.Common.resources.dll": {
+            "locale": "ka"
+          },
+          "lib/net9.0/kn/Gurux.Common.resources.dll": {
+            "locale": "kn"
+          },
+          "lib/net9.0/ko/Gurux.Common.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net9.0/lt/Gurux.Common.resources.dll": {
+            "locale": "lt"
+          },
+          "lib/net9.0/lv/Gurux.Common.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net9.0/mk/Gurux.Common.resources.dll": {
+            "locale": "mk"
+          },
+          "lib/net9.0/ms/Gurux.Common.resources.dll": {
+            "locale": "ms"
+          },
+          "lib/net9.0/mt/Gurux.Common.resources.dll": {
+            "locale": "mt"
+          },
+          "lib/net9.0/nl/Gurux.Common.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net9.0/no/Gurux.Common.resources.dll": {
+            "locale": "no"
+          },
+          "lib/net9.0/pl/Gurux.Common.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net9.0/pt/Gurux.Common.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net9.0/ro/Gurux.Common.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net9.0/ru/Gurux.Common.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net9.0/sk/Gurux.Common.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net9.0/sl/Gurux.Common.resources.dll": {
+            "locale": "sl"
+          },
+          "lib/net9.0/sq/Gurux.Common.resources.dll": {
+            "locale": "sq"
+          },
+          "lib/net9.0/sr/Gurux.Common.resources.dll": {
+            "locale": "sr"
+          },
+          "lib/net9.0/sv/Gurux.Common.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net9.0/sw/Gurux.Common.resources.dll": {
+            "locale": "sw"
+          },
+          "lib/net9.0/ta/Gurux.Common.resources.dll": {
+            "locale": "ta"
+          },
+          "lib/net9.0/te/Gurux.Common.resources.dll": {
+            "locale": "te"
+          },
+          "lib/net9.0/th/Gurux.Common.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net9.0/tr/Gurux.Common.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net9.0/uk/Gurux.Common.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/net9.0/ur/Gurux.Common.resources.dll": {
+            "locale": "ur"
+          },
+          "lib/net9.0/vi/Gurux.Common.resources.dll": {
+            "locale": "vi"
+          }
+        }
+      },
+      "Gurux.DLMS/9.0.2503.2001": {
+        "runtime": {
+          "lib/net6.0/Gurux.DLMS.dll": {
+            "assemblyVersion": "9.0.2503.2001",
+            "fileVersion": "9.0.2503.2001"
+          }
+        }
+      },
+      "Gurux.Net/8.4.2503.1001": {
+        "dependencies": {
+          "Gurux.Common": "8.4.2503.602",
+          "System.Resources.Extensions": "9.0.2"
+        },
+        "runtime": {
+          "lib/net9.0/Gurux.Net.dll": {
+            "assemblyVersion": "8.4.2503.1001",
+            "fileVersion": "8.4.2503.1001"
+          }
+        },
+        "resources": {
+          "lib/net9.0/af/Gurux.Net.resources.dll": {
+            "locale": "af"
+          },
+          "lib/net9.0/ar/Gurux.Net.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net9.0/az/Gurux.Net.resources.dll": {
+            "locale": "az"
+          },
+          "lib/net9.0/be/Gurux.Net.resources.dll": {
+            "locale": "be"
+          },
+          "lib/net9.0/bg/Gurux.Net.resources.dll": {
+            "locale": "bg"
+          },
+          "lib/net9.0/bn/Gurux.Net.resources.dll": {
+            "locale": "bn"
+          },
+          "lib/net9.0/ca/Gurux.Net.resources.dll": {
+            "locale": "ca"
+          },
+          "lib/net9.0/cs/Gurux.Net.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net9.0/cy/Gurux.Net.resources.dll": {
+            "locale": "cy"
+          },
+          "lib/net9.0/da/Gurux.Net.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net9.0/de/Gurux.Net.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net9.0/el/Gurux.Net.resources.dll": {
+            "locale": "el"
+          },
+          "lib/net9.0/es/Gurux.Net.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net9.0/et/Gurux.Net.resources.dll": {
+            "locale": "et"
+          },
+          "lib/net9.0/eu/Gurux.Net.resources.dll": {
+            "locale": "eu"
+          },
+          "lib/net9.0/fa/Gurux.Net.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net9.0/fi/Gurux.Net.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net9.0/fr/Gurux.Net.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net9.0/ga/Gurux.Net.resources.dll": {
+            "locale": "ga"
+          },
+          "lib/net9.0/gl/Gurux.Net.resources.dll": {
+            "locale": "gl"
+          },
+          "lib/net9.0/gu/Gurux.Net.resources.dll": {
+            "locale": "gu"
+          },
+          "lib/net9.0/hi/Gurux.Net.resources.dll": {
+            "locale": "hi"
+          },
+          "lib/net9.0/hr/Gurux.Net.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/net9.0/hu/Gurux.Net.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net9.0/id/Gurux.Net.resources.dll": {
+            "locale": "id"
+          },
+          "lib/net9.0/is/Gurux.Net.resources.dll": {
+            "locale": "is"
+          },
+          "lib/net9.0/it/Gurux.Net.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net9.0/ja/Gurux.Net.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net9.0/ka/Gurux.Net.resources.dll": {
+            "locale": "ka"
+          },
+          "lib/net9.0/kn/Gurux.Net.resources.dll": {
+            "locale": "kn"
+          },
+          "lib/net9.0/ko/Gurux.Net.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net9.0/lt/Gurux.Net.resources.dll": {
+            "locale": "lt"
+          },
+          "lib/net9.0/lv/Gurux.Net.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net9.0/mk/Gurux.Net.resources.dll": {
+            "locale": "mk"
+          },
+          "lib/net9.0/ms/Gurux.Net.resources.dll": {
+            "locale": "ms"
+          },
+          "lib/net9.0/mt/Gurux.Net.resources.dll": {
+            "locale": "mt"
+          },
+          "lib/net9.0/nl/Gurux.Net.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net9.0/no/Gurux.Net.resources.dll": {
+            "locale": "no"
+          },
+          "lib/net9.0/pl/Gurux.Net.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net9.0/pt/Gurux.Net.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net9.0/ro/Gurux.Net.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net9.0/ru/Gurux.Net.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net9.0/sk/Gurux.Net.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net9.0/sl/Gurux.Net.resources.dll": {
+            "locale": "sl"
+          },
+          "lib/net9.0/sq/Gurux.Net.resources.dll": {
+            "locale": "sq"
+          },
+          "lib/net9.0/sr/Gurux.Net.resources.dll": {
+            "locale": "sr"
+          },
+          "lib/net9.0/sv/Gurux.Net.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net9.0/sw/Gurux.Net.resources.dll": {
+            "locale": "sw"
+          },
+          "lib/net9.0/ta/Gurux.Net.resources.dll": {
+            "locale": "ta"
+          },
+          "lib/net9.0/te/Gurux.Net.resources.dll": {
+            "locale": "te"
+          },
+          "lib/net9.0/th/Gurux.Net.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net9.0/tr/Gurux.Net.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net9.0/uk/Gurux.Net.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/net9.0/ur/Gurux.Net.resources.dll": {
+            "locale": "ur"
+          },
+          "lib/net9.0/vi/Gurux.Net.resources.dll": {
+            "locale": "vi"
+          }
+        }
+      },
+      "Gurux.Serial/8.4.2503.603": {
+        "dependencies": {
+          "Gurux.Common": "8.4.2503.602",
+          "System.IO.Ports": "9.0.2",
+          "System.Resources.Extensions": "9.0.2"
+        },
+        "runtime": {
+          "lib/net9.0/Gurux.Serial.dll": {
+            "assemblyVersion": "8.4.2503.603",
+            "fileVersion": "8.4.2503.603"
+          }
+        },
+        "resources": {
+          "lib/net9.0/af/Gurux.Serial.resources.dll": {
+            "locale": "af"
+          },
+          "lib/net9.0/ar/Gurux.Serial.resources.dll": {
+            "locale": "ar"
+          },
+          "lib/net9.0/az/Gurux.Serial.resources.dll": {
+            "locale": "az"
+          },
+          "lib/net9.0/be/Gurux.Serial.resources.dll": {
+            "locale": "be"
+          },
+          "lib/net9.0/bg/Gurux.Serial.resources.dll": {
+            "locale": "bg"
+          },
+          "lib/net9.0/bn/Gurux.Serial.resources.dll": {
+            "locale": "bn"
+          },
+          "lib/net9.0/ca/Gurux.Serial.resources.dll": {
+            "locale": "ca"
+          },
+          "lib/net9.0/cs/Gurux.Serial.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net9.0/cy/Gurux.Serial.resources.dll": {
+            "locale": "cy"
+          },
+          "lib/net9.0/da/Gurux.Serial.resources.dll": {
+            "locale": "da"
+          },
+          "lib/net9.0/de/Gurux.Serial.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net9.0/el/Gurux.Serial.resources.dll": {
+            "locale": "el"
+          },
+          "lib/net9.0/es/Gurux.Serial.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net9.0/et/Gurux.Serial.resources.dll": {
+            "locale": "et"
+          },
+          "lib/net9.0/eu/Gurux.Serial.resources.dll": {
+            "locale": "eu"
+          },
+          "lib/net9.0/fa/Gurux.Serial.resources.dll": {
+            "locale": "fa"
+          },
+          "lib/net9.0/fi/Gurux.Serial.resources.dll": {
+            "locale": "fi"
+          },
+          "lib/net9.0/fr/Gurux.Serial.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net9.0/ga/Gurux.Serial.resources.dll": {
+            "locale": "ga"
+          },
+          "lib/net9.0/gl/Gurux.Serial.resources.dll": {
+            "locale": "gl"
+          },
+          "lib/net9.0/gu/Gurux.Serial.resources.dll": {
+            "locale": "gu"
+          },
+          "lib/net9.0/hi/Gurux.Serial.resources.dll": {
+            "locale": "hi"
+          },
+          "lib/net9.0/hr/Gurux.Serial.resources.dll": {
+            "locale": "hr"
+          },
+          "lib/net9.0/hu/Gurux.Serial.resources.dll": {
+            "locale": "hu"
+          },
+          "lib/net9.0/id/Gurux.Serial.resources.dll": {
+            "locale": "id"
+          },
+          "lib/net9.0/is/Gurux.Serial.resources.dll": {
+            "locale": "is"
+          },
+          "lib/net9.0/it/Gurux.Serial.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net9.0/ja/Gurux.Serial.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net9.0/ka/Gurux.Serial.resources.dll": {
+            "locale": "ka"
+          },
+          "lib/net9.0/kn/Gurux.Serial.resources.dll": {
+            "locale": "kn"
+          },
+          "lib/net9.0/ko/Gurux.Serial.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net9.0/lt/Gurux.Serial.resources.dll": {
+            "locale": "lt"
+          },
+          "lib/net9.0/lv/Gurux.Serial.resources.dll": {
+            "locale": "lv"
+          },
+          "lib/net9.0/mk/Gurux.Serial.resources.dll": {
+            "locale": "mk"
+          },
+          "lib/net9.0/ms/Gurux.Serial.resources.dll": {
+            "locale": "ms"
+          },
+          "lib/net9.0/mt/Gurux.Serial.resources.dll": {
+            "locale": "mt"
+          },
+          "lib/net9.0/nl/Gurux.Serial.resources.dll": {
+            "locale": "nl"
+          },
+          "lib/net9.0/no/Gurux.Serial.resources.dll": {
+            "locale": "no"
+          },
+          "lib/net9.0/pl/Gurux.Serial.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net9.0/pt/Gurux.Serial.resources.dll": {
+            "locale": "pt"
+          },
+          "lib/net9.0/ro/Gurux.Serial.resources.dll": {
+            "locale": "ro"
+          },
+          "lib/net9.0/ru/Gurux.Serial.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net9.0/sk/Gurux.Serial.resources.dll": {
+            "locale": "sk"
+          },
+          "lib/net9.0/sl/Gurux.Serial.resources.dll": {
+            "locale": "sl"
+          },
+          "lib/net9.0/sq/Gurux.Serial.resources.dll": {
+            "locale": "sq"
+          },
+          "lib/net9.0/sr/Gurux.Serial.resources.dll": {
+            "locale": "sr"
+          },
+          "lib/net9.0/sv/Gurux.Serial.resources.dll": {
+            "locale": "sv"
+          },
+          "lib/net9.0/sw/Gurux.Serial.resources.dll": {
+            "locale": "sw"
+          },
+          "lib/net9.0/ta/Gurux.Serial.resources.dll": {
+            "locale": "ta"
+          },
+          "lib/net9.0/te/Gurux.Serial.resources.dll": {
+            "locale": "te"
+          },
+          "lib/net9.0/th/Gurux.Serial.resources.dll": {
+            "locale": "th"
+          },
+          "lib/net9.0/tr/Gurux.Serial.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net9.0/uk/Gurux.Serial.resources.dll": {
+            "locale": "uk"
+          },
+          "lib/net9.0/ur/Gurux.Serial.resources.dll": {
+            "locale": "ur"
+          },
+          "lib/net9.0/vi/Gurux.Serial.resources.dll": {
+            "locale": "vi"
+          }
         }
       },
       "Microsoft.AspNetCore.Authorization/9.0.4": {
@@ -131,6 +680,214 @@
             "fileVersion": "9.0.425.16403"
           }
         }
+      },
+      "runtime.android-arm.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/android-arm/native/libSystem.IO.Ports.Native.so": {
+            "rid": "android-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.android-arm64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/android-arm64/native/libSystem.IO.Ports.Native.so": {
+            "rid": "android-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.android-x64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/android-x64/native/libSystem.IO.Ports.Native.so": {
+            "rid": "android-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.android-x86.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/android-x86/native/libSystem.IO.Ports.Native.so": {
+            "rid": "android-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.linux-arm.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.linux-arm64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.linux-bionic-arm64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/linux-bionic-arm64/native/libSystem.IO.Ports.Native.so": {
+            "rid": "linux-bionic-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.linux-bionic-x64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/linux-bionic-x64/native/libSystem.IO.Ports.Native.so": {
+            "rid": "linux-bionic-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.linux-musl-arm.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/linux-musl-arm/native/libSystem.IO.Ports.Native.so": {
+            "rid": "linux-musl-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.linux-musl-arm64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/linux-musl-arm64/native/libSystem.IO.Ports.Native.so": {
+            "rid": "linux-musl-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.linux-musl-x64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/linux-musl-x64/native/libSystem.IO.Ports.Native.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.linux-x64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.maccatalyst-arm64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/maccatalyst-arm64/native/libSystem.IO.Ports.Native.dylib": {
+            "rid": "maccatalyst-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.maccatalyst-x64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/maccatalyst-x64/native/libSystem.IO.Ports.Native.dylib": {
+            "rid": "maccatalyst-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.native.System.IO.Ports/9.0.2": {
+        "dependencies": {
+          "runtime.android-arm.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.android-arm64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.android-x64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.android-x86.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.linux-arm.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.linux-arm64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.linux-bionic-arm64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.linux-bionic-x64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.linux-musl-arm.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.linux-musl-arm64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.linux-musl-x64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.linux-x64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.maccatalyst-arm64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.maccatalyst-x64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.osx-arm64.runtime.native.System.IO.Ports": "9.0.2",
+          "runtime.osx-x64.runtime.native.System.IO.Ports": "9.0.2"
+        }
+      },
+      "runtime.osx-arm64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/osx-arm64/native/libSystem.IO.Ports.Native.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "runtime.osx-x64.runtime.native.System.IO.Ports/9.0.2": {
+        "runtimeTargets": {
+          "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "System.Formats.Nrbf/9.0.2": {
+        "runtime": {
+          "lib/net9.0/System.Formats.Nrbf.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.225.6610"
+          }
+        }
+      },
+      "System.IO.Ports/9.0.2": {
+        "dependencies": {
+          "runtime.native.System.IO.Ports": "9.0.2"
+        },
+        "runtime": {
+          "lib/net9.0/System.IO.Ports.dll": {
+            "assemblyVersion": "9.0.0.2",
+            "fileVersion": "9.0.225.6610"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/net9.0/System.IO.Ports.dll": {
+            "rid": "unix",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.2",
+            "fileVersion": "9.0.225.6610"
+          },
+          "runtimes/win/lib/net9.0/System.IO.Ports.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "9.0.0.2",
+            "fileVersion": "9.0.225.6610"
+          }
+        }
+      },
+      "System.Resources.Extensions/9.0.2": {
+        "dependencies": {
+          "System.Formats.Nrbf": "9.0.2"
+        },
+        "runtime": {
+          "lib/net9.0/System.Resources.Extensions.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.225.6610"
+          }
+        }
       }
     }
   },
@@ -139,6 +896,34 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Gurux.Common/8.4.2503.602": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wX/99sLNxkojHuf/fS6tGyjEF04/mEHxFI0tN+MgttgMv9nX/LfCVtdC7iH1zg46+S1ho56D5CU8sDjIhEWzVA==",
+      "path": "gurux.common/8.4.2503.602",
+      "hashPath": "gurux.common.8.4.2503.602.nupkg.sha512"
+    },
+    "Gurux.DLMS/9.0.2503.2001": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rtm8ZAilC1NN60E8OyOFfCV8lZLkDXcJjXUrI3aXnOkx8Cug6CRW4oDGJdoG+3HWlDQCTQXQPOEJuSdyv6Y2iw==",
+      "path": "gurux.dlms/9.0.2503.2001",
+      "hashPath": "gurux.dlms.9.0.2503.2001.nupkg.sha512"
+    },
+    "Gurux.Net/8.4.2503.1001": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hvL//GtVpLHkM+ov0uz/zEtAbJPQ1KSA4sT6ES+hdJYgY1NRNiW0YBbnVHpldco3AsweEKRM6Mp+ENbmkDUoig==",
+      "path": "gurux.net/8.4.2503.1001",
+      "hashPath": "gurux.net.8.4.2503.1001.nupkg.sha512"
+    },
+    "Gurux.Serial/8.4.2503.603": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dw/KwOsqIVblFrDOLqC8MhVemzrIKZH5tCkf3oZAmQfaabHN7bWjnyElAIyh3ksRV2dzbvUhf/mdpoHLJZPoZw==",
+      "path": "gurux.serial/8.4.2503.603",
+      "hashPath": "gurux.serial.8.4.2503.603.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/9.0.4": {
       "type": "package",
@@ -223,6 +1008,146 @@
       "sha512": "sha512-iuzwm79XoRYTRhf7cOHgMgGAE8ZsAcCGp2VsIDAV05qRzceKSE1S7tQp+8GTzG7+IZpdPpvfaJUwSD/pYIog5A==",
       "path": "microsoft.jsinterop/9.0.4",
       "hashPath": "microsoft.jsinterop.9.0.4.nupkg.sha512"
+    },
+    "runtime.android-arm.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8KolqwbQ0VdgTCTwK5+A+AjhoO7gaMXlVQrCBSPs4pabdrADVyMzT4m0bCVnlr3BYkA1E0hwSFfzcjrJfUfMJA==",
+      "path": "runtime.android-arm.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.android-arm.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.android-arm64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g4PXUC/ZlObiF6MXYx1jbTJuonWF00BljNcq3sSRBP/eLfJhTep54eKH3+PfPqqg90aiDCT8/va9ALVno4yLzQ==",
+      "path": "runtime.android-arm64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.android-arm64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.android-x64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ygB47B8//yT97qPnQHTDwzj+rqukcI4UcuBzk8YDKtoskJS+tn21OOtMOlr922m7YEPYnOOwZygrx/fRaDKf1g==",
+      "path": "runtime.android-x64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.android-x64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.android-x86.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D6jf7vDJHKXU9didjUYkgbMUGaeFwVqq91tRLzw1CqoDIBXcAxms8UlU4pap6qUMLuoa0DM3CrTQQzVOgEDaxA==",
+      "path": "runtime.android-x86.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.android-x86.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.linux-arm.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bsXuCSpyPqJtdKXQ4+zHhmP9iZUj+SY9UwKM++uCZY/40fO/05u54H5F9qE2II4OJBzo2ea4X2xxRAhy0ieemA==",
+      "path": "runtime.linux-arm.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.linux-arm.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.linux-arm64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SoNWxczlEI5UaAwgKxwosooo+0eYbkWD7mWTW4vhtWCEmebzcFmjTxMNiKP0/elFrT9AZE5kqsylUW86Xf61Ew==",
+      "path": "runtime.linux-arm64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.linux-arm64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.linux-bionic-arm64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A1pXuhSvP59vjsl98kj/IazdPExslkohS/8Co+GJsCcLj1ITqHkC1jJXeiQ/LCFiYVANT0UusZ7rUWCfNhgHZg==",
+      "path": "runtime.linux-bionic-arm64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.linux-bionic-arm64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.linux-bionic-x64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8HrGBFKVfuiiRtywSHYYu4P6GehmJZkdI+YN5J94WBspe28Pty0Uy/PTUDkzUOjdcZN/lyJ1l0bJalJE7iECUA==",
+      "path": "runtime.linux-bionic-x64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.linux-bionic-x64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.linux-musl-arm.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7IFSSoDB6j8GX6OTyfFvYH79J0xoGpC24xDGpOICohiC5OVIuCXyi94CWtydnpvMQzLZeUXSmVMRG6QQvlJTjg==",
+      "path": "runtime.linux-musl-arm.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.linux-musl-arm.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.linux-musl-arm64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0jyuKKQ+MKzZg0QBfOevQNaO+EaCTLVAgHXrrE+TnRx4RpsSWWhubhjFhfdwgXPaIJp7s22ziDZlFfhaEofzqA==",
+      "path": "runtime.linux-musl-arm64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.linux-musl-arm64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.linux-musl-x64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eIAL7aIpokin87Q0k7TrvZappuQqOJlwYUC7rjlAyaD57sCGknFPMcK6Dy5/4PndUUynhuv4eHWiQ+JNqmrZzA==",
+      "path": "runtime.linux-musl-x64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.linux-musl-x64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.linux-x64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OnivEH6g0lJ9RqxBGjN4v2DmQ2ujnxKQTl2+DuWJE4P1X5xBZML9wH9i9Z3ctClIQW6erLtb6WbAv/Wu67gEBw==",
+      "path": "runtime.linux-x64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.linux-x64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.maccatalyst-arm64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2CdJqVTAiDStC6Osc13Xn6tNoMFeKg2wXhVKDcdtp03JrAEaQDxS/8Lqf78CCNqz3d5Y8Ao747Wcw1OkoVjguw==",
+      "path": "runtime.maccatalyst-arm64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.maccatalyst-arm64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.maccatalyst-x64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-H9WGv+kxTQkOwegBtGoFU1YhFx6sNe1QYVBy1uS3oo+28XrvBr3rqehbz+CEs9L9kbVXION/7jwN2MV4rnOHGg==",
+      "path": "runtime.maccatalyst-x64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.maccatalyst-x64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vDSDKmQScIAjYBb2sBuuuAa35juhCmUzk1qyybJrHzZ0pigKZgxhqtDBiLoIdN6epjRfX5uwNJPrNTdW9awxuA==",
+      "path": "runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.osx-arm64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aKmjKX0GLAuLF8iZQgkvEfNgsKfXfJ93mqlcLyxlGcb4f0u1HCPOf97IJI4HAOGmwlqw1RTQyEEMVes54S7o1Q==",
+      "path": "runtime.osx-arm64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.osx-arm64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "runtime.osx-x64.runtime.native.System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aQDPDCg6seSBRJvx45K8heC2Q1u8uKZ+u52RnREKh6MdHx+E1WlEOqs7u5MH5E3dP6Hw6BIYSdvoElRi8fBB3Q==",
+      "path": "runtime.osx-x64.runtime.native.system.io.ports/9.0.2",
+      "hashPath": "runtime.osx-x64.runtime.native.system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "System.Formats.Nrbf/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-N4wfaY7cRs+U15gKM7l+ow8ggaUEbt9qwXBuY6QYyACv3PMQonvCNoQ08UrDOojXd/RmWC/lucJH2Hztssb24Q==",
+      "path": "system.formats.nrbf/9.0.2",
+      "hashPath": "system.formats.nrbf.9.0.2.nupkg.sha512"
+    },
+    "System.IO.Ports/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8s2COaRyV3om826x0rd2Y5bzpLWmS5KHAIUpG3BWYKxFmdLWM2UTOWzp6/x9rGutbJbfFra8QLfhar4kR/7Ygg==",
+      "path": "system.io.ports/9.0.2",
+      "hashPath": "system.io.ports.9.0.2.nupkg.sha512"
+    },
+    "System.Resources.Extensions/9.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XXdqiHaKYL70e0pJPmfmW/eMZkRNAqPIlJQLzLpL4B0C2zKmy7jTCZuK1v8FBgOFVTqC2S8znUz8DR+drjMJrQ==",
+      "path": "system.resources.extensions/9.0.2",
+      "hashPath": "system.resources.extensions.9.0.2.nupkg.sha512"
     }
   }
 }

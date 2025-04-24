@@ -1,4 +1,5 @@
 using DLMS_Diplomka03.Components;
+using DLMS_Diplomka03.Shared.Components.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Photino.Blazor;
 
@@ -13,6 +14,7 @@ class Program
 
             appBuilder.Services.AddLogging();
 
+            appBuilder.Services.AddSingleton<DeviceDataViewModel>();
             appBuilder.RootComponents.Add<App>("app");
 
 
