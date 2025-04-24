@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DLMS_Diplomka03.Shared")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5cf60816a565331f59e0210ed7f07da111eaa7e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07eb5a076acb671cb7966fe448fc49b7450bd726")]
 [assembly: System.Reflection.AssemblyProductAttribute("DLMS_Diplomka03.Shared")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DLMS_Diplomka03.Shared")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

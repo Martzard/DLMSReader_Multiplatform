@@ -12,18 +12,6 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"x2rx4ajns0"},{"Name":"integrity","Value":"sha256-WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY="},{"Name":"label","Value":"_content/DLMS_Diplomka03.Shared/background.png"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"378"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022WeOKCkI7IdJHs2kCqsKgLfiWX4/sNPbaRUspOLefkCY=\u0022"},{"Name":"Last-Modified","Value":"Wed, 23 Apr 2025 19:55:45 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5786"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00226K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Apr 2025 18:54:23 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\DLMS_Diplomka03.Shared.cndwof5drw.bundle.scp.css'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cndwof5drw"},{"Name":"integrity","Value":"sha256-6K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4="},{"Name":"label","Value":"_content/DLMS_Diplomka03.Shared/DLMS_Diplomka03.Shared.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5786"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00226K7y6H5WDbr5neu2zWYNRvvg9jWct3i8Un9Jc7GQ7e4=\u0022"},{"Name":"Last-Modified","Value":"Thu, 24 Apr 2025 18:54:23 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/DLMS_Diplomka03.Shared/exampleJsInterop.6pqz8bsss0.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\exampleJsInterop.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

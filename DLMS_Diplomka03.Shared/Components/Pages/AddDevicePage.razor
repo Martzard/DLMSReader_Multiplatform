@@ -1,0 +1,117 @@
+﻿@page "/add-device"
+@using DLMS_Diplomka03.Shared.Components.Models
+@using DLMS_Diplomka03.Shared.Components.ViewModels
+@using Gurux.DLMS.Enums
+@inject DeviceDataViewModel ViewModel
+@inject NavigationManager Nav
+
+<h3>Přidat nové zařízení</h3>
+
+<div class="form-grid">
+    <div class="form-section">
+        <label>Název zařízení:</label>
+        <input @bind="NewName" placeholder="Název" />
+    </div>
+
+    <div class="form-section">
+        <label>Interface:</label>
+        <select @bind="NewInterfaceType">
+            @foreach (InterfaceType type in Enum.GetValues(typeof(InterfaceType)))
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-section switch-inline">
+        <label>Logical Name Referencing:</label>
+        <input type="checkbox" @bind="NewLogicalNameReferencing" />
+    </div>
+
+    <div class="form-row">
+        <div>
+            <label>Client Address:</label>
+            <input type="number" @bind="NewClientAddress" />
+        </div>
+        <div>
+            <label>Logical Server:</label>
+            <input type="number" @bind="NewLogicalServerAddress" />
+        </div>
+        <div>
+            <label>Physical Server:</label>
+            <input type="number" @bind="NewPhysicalServerAddress" />
+        </div>
+    </div>
+
+    @if (NewInterfaceType == InterfaceType.WRAPPER)
+    {
+        <div class="form-section">
+            <label>IP Adresa:</label>
+            <input @bind="NewServerAddress" placeholder="127.0.0.1" />
+            <label>Port:</label>
+            <input type="number" @bind="NewPort" />
+        </div>
+    }
+    else
+    {
+        <div class="form-section">
+            <label>COM Port:</label>
+            <input @bind="NewSerialPort" placeholder="COM1" />
+            <label>Baud Rate:</label>
+            <input type="number" @bind="NewBaudRate" />
+            <label>Data Bits:</label>
+            <input type="number" @bind="NewDataBits" />
+            <label>Stop Bits:</label>
+            <select @bind="NewStopBits">
+                @foreach (System.IO.Ports.StopBits s in Enum.GetValues(typeof(System.IO.Ports.StopBits)))
+                {
+                    <option value="@s">@s</option>
+                }
+            </select>
+            <label>Parity:</label>
+            <select @bind="NewParity">
+                @foreach (System.IO.Ports.Parity p in Enum.GetValues(typeof(System.IO.Ports.Parity)))
+                {
+                    <option value="@p">@p</option>
+                }
+            </select>
+        </div>
+    }
+
+    <div class="form-actions">
+        <button @onclick="ConfirmAddDevice">Přidat</button>
+        <button @onclick="NavigateBack">Zpět</button>
+    </div>
+</div>
+
+@code {
+    private string NewName = "";
+    private string NewServerAddress = "127.0.0.1";
+    private int NewPort = 4059;
+    private InterfaceType NewInterfaceType = InterfaceType.WRAPPER;
+    private bool NewLogicalNameReferencing = true;
+
+    private string NewSerialPort = "COM1";
+    private int NewBaudRate = 9600;
+    private int NewDataBits = 8;
+    private System.IO.Ports.StopBits NewStopBits = System.IO.Ports.StopBits.One;
+    private System.IO.Ports.Parity NewParity = System.IO.Ports.Parity.None;
+
+    private int NewClientAddress = 1;
+    private int NewLogicalServerAddress = 1;
+    private int NewPhysicalServerAddress = 1;
+
+    private void ConfirmAddDevice()
+    {
+        var newDevice = NewInterfaceType switch
+        {
+            InterfaceType.WRAPPER => new DLMSDeviceModel(NewName, NewServerAddress, NewPort, NewInterfaceType, NewLogicalNameReferencing, NewClientAddress, NewLogicalServerAddress, NewPhysicalServerAddress),
+            _ => new DLMSDeviceModel(NewName, NewSerialPort, NewBaudRate, NewDataBits, NewStopBits, NewParity, NewInterfaceType, NewLogicalNameReferencing, NewClientAddress, NewLogicalServerAddress, NewPhysicalServerAddress),
+        };
+
+        ViewModel.AddDevice(newDevice);
+        Nav.NavigateTo("/");
+    }
+
+    private void NavigateBack() => Nav.NavigateTo("/");
+}

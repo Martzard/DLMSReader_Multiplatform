@@ -207,7 +207,6 @@
 /home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/DLMS_Diplomka03.pdb
 /home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/DLMS_Diplomka03.genruntimeconfig.cache
 /home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/ref/DLMS_Diplomka03.dll
-/home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/obj/Debug/net9.0/compressed/iflr9bcovs-ih0qjl6q9o.gz
 /home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/bin/Debug/net9.0/Gurux.Common.dll
 /home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/bin/Debug/net9.0/Gurux.DLMS.dll
 /home/martin-zarecky/Documents/Diplomka/DLMS_Diplomka03/DLMS_Diplomka03/bin/Debug/net9.0/Gurux.Net.dll
