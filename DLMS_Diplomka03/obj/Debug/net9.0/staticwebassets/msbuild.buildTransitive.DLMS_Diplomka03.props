@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/DLMS_Diplomka03.props" />
-</Project>
