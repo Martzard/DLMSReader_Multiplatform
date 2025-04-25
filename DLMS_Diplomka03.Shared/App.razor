@@ -1,4 +1,8 @@
 ﻿@namespace DLMS_Diplomka03.Shared
+
+
+<Antiforgery />   @* vloží CSRF token do stránky *@
+
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" />
