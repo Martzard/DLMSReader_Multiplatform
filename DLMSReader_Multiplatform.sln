@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Ph
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Maui", "DLMSReader_Multiplatform.Maui\DLMSReader_Multiplatform.Maui.csproj", "{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Wasm", "DLMSReader_Multiplatform.Wasm\DLMSReader_Multiplatform.Wasm.csproj", "{B902A473-C173-4C37-B3DF-7D47D463A782}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,7 @@ Global
 		{25EB0942-9519-4984-9E0B-6B4B6088F6FF}.Release|x86.Build.0 = Release|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Debug|x64.ActiveCfg = Debug|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Debug|x64.Build.0 = Debug|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -55,6 +58,18 @@ Global
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Release|x64.Build.0 = Release|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Release|x86.ActiveCfg = Release|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Release|x86.Build.0 = Release|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Debug|x64.Build.0 = Debug|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Debug|x86.Build.0 = Debug|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|x64.ActiveCfg = Release|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|x64.Build.0 = Release|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|x86.ActiveCfg = Release|Any CPU
+		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
