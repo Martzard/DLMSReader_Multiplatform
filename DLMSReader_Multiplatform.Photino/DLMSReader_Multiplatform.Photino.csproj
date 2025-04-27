@@ -22,4 +22,10 @@
     <ProjectReference Include="../DLMSReader_Multiplatform.Shared/DLMSReader_Multiplatform.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Components\DLMSReader_Multiplatform_Icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

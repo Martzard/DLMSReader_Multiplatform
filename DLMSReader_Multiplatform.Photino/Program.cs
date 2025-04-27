@@ -14,11 +14,12 @@ class Program
 
             appBuilder.Services.AddSingleton<DeviceDataViewModel>();
             appBuilder.RootComponents.Add<App>("app");
-
+            
 
             var app = appBuilder.Build();
 
-            app.MainWindow.SetTitle("Photino Blazor Sample");
+            app.MainWindow.SetTitle("DLMSReader_Multiplatform");
+            
 
             AppDomain.CurrentDomain.UnhandledException += (sender, error) =>
             {
