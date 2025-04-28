@@ -1,6 +1,8 @@
 ﻿@page "/add-device"
 @using DLMSReader_Multiplatform.Shared.Components.Models
 @using DLMSReader_Multiplatform.Shared.Components.ViewModels
+@using DLMSReader_Multiplatform.Shared.Components.Enums
+@using System.IO.Ports;
 @using Gurux.DLMS.Enums
 @inject DeviceDataViewModel ViewModel
 @inject NavigationManager Nav
@@ -43,7 +45,7 @@
         <label>
             Logical Name Referencing
             <input type="checkbox" @bind="NewLogicalNameReferencing" style="margin-right:8px;" />
-            
+
         </label>
     </div>
 
@@ -75,13 +77,25 @@
         else
         {
             <div class="form-item">
-                <label>COM Port:</label>
-                <input @bind="NewSerialPort" placeholder="COM1" />
+                <label>COM port</label>
+                <select @bind="SelectedPort">
+                    @foreach (string port in ComPorts)
+                    {
+                        <option value="@port">@port</option>
+                    }
+                </select>
             </div>
+
             <div class="form-item">
                 <label>Baud Rate:</label>
-                <input type="number" @bind="NewBaudRate" />
+                <select @bind="NewBaudRate">
+                    @foreach (BaudRate rate in Enum.GetValues(typeof(BaudRate)))
+                    {
+                        <option value="@(rate)">@(rate)</option>
+                    }
+                </select>
             </div>
+
             <div class="form-item">
                 <label>Data Bits:</label>
                 <input type="number" @bind="NewDataBits" />
@@ -95,6 +109,7 @@
                     }
                 </select>
             </div>
+
             <div class="form-item">
                 <label>Parity:</label>
                 <select @bind="NewParity">
@@ -128,6 +143,13 @@ else if (SelectedMenu == "Advanced")
     </div>
 }
 
+@if (!string.IsNullOrEmpty(Warning))
+{
+    <div class="alert alert-warning">
+        @Warning
+    </div>
+}
+
 
 @code {
     private string NewName = "";
@@ -136,8 +158,8 @@ else if (SelectedMenu == "Advanced")
     private InterfaceType NewInterfaceType = InterfaceType.WRAPPER;
     private bool NewLogicalNameReferencing = true;
 
-    private string NewSerialPort = "COM1";
-    private int NewBaudRate = 9600;
+    private BaudRate NewBaudRate = BaudRate.B9600;
+
     private int NewDataBits = 8;
     private System.IO.Ports.StopBits NewStopBits = System.IO.Ports.StopBits.One;
     private System.IO.Ports.Parity NewParity = System.IO.Ports.Parity.None;
@@ -145,6 +167,16 @@ else if (SelectedMenu == "Advanced")
     private int NewClientAddress = 1;
     private int NewLogicalServerAddress = 1;
     private int NewPhysicalServerAddress = 1;
+
+    private List<string> ComPorts = new();
+    private string? SelectedPort;
+
+    private string? Warning;
+
+    protected override void OnInitialized()
+    {
+        RefreshComPorts();   // načíst při otevření stránky
+    }
 
     private string SelectedMenu = "MainSettings";
 
@@ -155,10 +187,55 @@ else if (SelectedMenu == "Advanced")
 
     private void ConfirmAddDevice()
     {
+
+
+        if (string.IsNullOrWhiteSpace(NewName))
+        {
+            Warning = "You have to fill new name of the device";
+            return;
+        }
+
+        if ((NewInterfaceType is InterfaceType.HDLC or InterfaceType.HdlcWithModeE) &&
+        string.IsNullOrWhiteSpace(SelectedPort))
+        {
+            //Warning = "You have to select a serial port.";
+            //return;
+            SelectedPort = "Not selected!!!"; //Zatim takto nechame pro debuging
+            
+        }
+
         var newDevice = NewInterfaceType switch
         {
-            InterfaceType.WRAPPER => new DLMSDeviceModel(NewName, NewServerAddress, NewPort, NewInterfaceType, NewLogicalNameReferencing, NewClientAddress, NewLogicalServerAddress, NewPhysicalServerAddress),
-            _ => new DLMSDeviceModel(NewName, NewSerialPort, NewBaudRate, NewDataBits, NewStopBits, NewParity, NewInterfaceType, NewLogicalNameReferencing, NewClientAddress, NewLogicalServerAddress, NewPhysicalServerAddress),
+            //Síťový WRAPPER (TCP/UDP)
+            InterfaceType.WRAPPER =>
+                new DLMSDeviceModel(
+                    NewName,
+                    NewServerAddress,
+                    NewPort,
+                    NewInterfaceType,
+                    NewLogicalNameReferencing,
+                    NewClientAddress,
+                    NewLogicalServerAddress,
+                    NewPhysicalServerAddress),
+
+            //Obě sériové varianty – klasické HDLC i HDLC s Mode E
+            InterfaceType.HDLC or InterfaceType.HdlcWithModeE =>
+                new DLMSDeviceModel(
+                    NewName,
+                    SelectedPort!, //vime ze pokud neni zadny port vybrany, tak je nastaven na "Not selected!!! tudiz nebude fungovat ale ulozi se!
+                    (int)NewBaudRate,
+                    NewDataBits,
+                    NewStopBits,
+                    NewParity,
+                    NewInterfaceType,
+                    NewLogicalNameReferencing,
+                    NewClientAddress,
+                    NewLogicalServerAddress,
+                    NewPhysicalServerAddress),
+
+            //pojistka pro budoucí hodnoty enumu... zatim nejsou jine nez vyse zminene podporovany
+            _ => throw new NotSupportedException(
+                     $"Interface {NewInterfaceType} zatím není podporován.")
         };
 
         ViewModel.AddDevice(newDevice);
@@ -166,6 +243,31 @@ else if (SelectedMenu == "Advanced")
     }
 
     private void NavigateBack() => Nav.NavigateTo("/");
+
+    private void RefreshComPorts()
+    {
+        //Na platformach kde nacitani portu nema smysl nic nenacitame, protoze to za prve bude padat,
+        //za druhe neni aktualne potreba podpory COM portu na techto zarizenich --> Android a WebAssembly
+        if (OperatingSystem.IsBrowser() || OperatingSystem.IsAndroid())
+        {
+            ComPorts.Clear();       // necháme select prázdný
+            return;
+        }
+
+        try
+        {
+            ComPorts = SerialPort.GetPortNames()
+                                 .OrderBy(p => p, StringComparer.OrdinalIgnoreCase)
+                                 .ToList();
+
+            if (ComPorts.Count > 0 && SelectedPort is null)
+                SelectedPort = ComPorts[0];
+        }
+        catch
+        {
+            ComPorts.Clear();       // neočekávané selhání → vyprázdni seznam
+        }
+    }
 }
 
 <style>
