@@ -5,24 +5,18 @@
 @inject DeviceDataViewModel ViewModel
 @inject NavigationManager Nav
 
-<div style="display:flex;flex-direction:column;height:100vh;">
-    <!-- Horní část -->
-    <div style="flex:1;display:flex;overflow:hidden;">
+<div class="connect-layout">
+    <!-- Horní část: celý viewport minus horní baru (pokud budeš mít) -->
+    <div class="panels">
         <!-- Levý panel -->
-        <div style="width:250px;background:#f9f9f9;border-right:1px solid #ccc;display:flex;flex-direction:column;">
-            <div style="padding:10px;border-bottom:1px solid #ccc;">
-                <button @onclick="ReadAllObjects"
-                        style="width:100%;margin-bottom:5px;background:mediumseagreen;color:#fff;border:none;padding:8px;border-radius:5px;">
-                    Načíst objekty
-                </button>
-                <button @onclick="@(() => Nav.NavigateTo("/"))"
-                        style="width:100%;background:firebrick;color:#fff;border:none;padding:8px;border-radius:5px;">
-                    Zpět
-                </button>
-                <h5 style="margin:8px 0 0 0;">Objekty</h5>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <button class="btn-load" @onclick="ReadAllObjects">Načíst objekty</button>
+                <button class="btn-back" @onclick="@(() => Nav.NavigateTo("/"))">Zpět</button>
+                <h5 class="sidebar-title">Objekty</h5>
             </div>
 
-            <div style="padding:10px;overflow-y:auto;flex-grow:1;">
+            <div class="sidebar-body">
                 @if (connectionVM?.Device.DeviceObjects?.Count == 0)
                 {
                     <p><em>Žádné objekty zatím nebyly načteny.</em></p>
@@ -30,7 +24,7 @@
                 else
                 {
                     <ul class="device-list">
-                        @foreach (var obj in connectionVM!.Device.DeviceObjects)
+                        @foreach (var obj in connectionVM.Device.DeviceObjects)
                         {
                             <li @onclick="() => SelectObject(obj)"
                                 class="@(connectionVM.SelectedObject == obj ? "selected" : "")">
@@ -41,35 +35,135 @@
                     </ul>
                 }
             </div>
-        </div>
+        </aside>
 
         <!-- Pravý panel -->
-        <div style="flex-grow:1;padding:20px;overflow-y:auto;">
+        <section class="detail-panel">
             @if (connectionVM?.Device.InterfaceType == Gurux.DLMS.Enums.InterfaceType.WRAPPER)
             {
-                <h4>@($"{connectionVM?.Device.Name}, {connectionVM?.Device.InterfaceType}, {connectionVM?.Device.ServerAddress}:{connectionVM?.Device.Port}")</h4>
+                <h4>@($"{connectionVM.Device.Name} | {connectionVM.Device.InterfaceType} | {connectionVM.Device.ServerAddress}:{connectionVM.Device.Port}")</h4>
             }
 
             @if (connectionVM?.SelectedObject != null)
             {
-                <pre>@connectionVM.ObjectDetailsString</pre>
+                <pre class="object-details">@connectionVM.ObjectDetailsString</pre>
             }
             else
             {
                 <p><em>Vyber objekt ze seznamu vlevo.</em></p>
             }
-        </div>
+        </section>
     </div>
 </div>
 
 <style>
-    .device-list { list-style:none;padding:0;margin:0; }
-    .device-list li {
-        padding:10px;border:1px solid #ccc;margin-bottom:5px;border-radius:6px;
-        cursor:pointer;transition:background .2s ease;
+    .connect-layout {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
-    .device-list li:hover { background:#f1f1f1; }
-    .device-list li.selected { background:#d0ebff;border-color:#74c0fc; }
+
+    .panels {
+        flex: 1;
+        display: flex;
+        overflow: hidden;
+    }
+
+    /* ── Levý panel ── */
+    .sidebar {
+        width: 250px;
+        min-width: 250px;
+        max-width: 250px;
+        background: #f9f9f9;
+        border-right: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar-header {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        flex-shrink: 0;
+    }
+
+    .btn-load,
+    .btn-back {
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .btn-load {
+        background: mediumseagreen;
+        margin-bottom: 5px;
+    }
+
+    .btn-back {
+        background: firebrick;
+    }
+
+    .sidebar-title {
+        margin: 8px 0 0;
+        font-size: 1rem;
+        font-weight: normal;
+    }
+
+    .sidebar-body {
+        padding: 10px;
+        overflow-y: auto;
+        flex-grow: 1;
+    }
+
+    /* seznam */
+    .device-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .device-list li {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+            .device-list li:hover {
+                background: #f1f1f1;
+            }
+
+            .device-list li.selected {
+                background: #d0ebff;
+                border-color: #74c0fc;
+            }
+
+    /* ── Pravý panel ── */
+    .detail-panel {
+        flex-grow: 1;
+        padding: 20px;
+        overflow-y: auto;
+        min-width: 0; /* důležité pro flex */
+    }
+
+        .detail-panel h4 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+    .object-details {
+        background: #f5f5f5;
+        padding: 10px;
+        border-radius: 5px;
+        overflow-x: auto;
+    }
 </style>
 
 @code {
@@ -81,7 +175,7 @@
     {
         var device = ViewModel.AllDevices.FirstOrDefault(d => d.Name == DeviceName);
         if (device != null)
-            connectionVM = new DeviceConnectionViewModel(device);   // bez DbService
+            connectionVM = new DeviceConnectionViewModel(device);
         else
             Nav.NavigateTo("/");
     }
