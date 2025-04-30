@@ -52,15 +52,15 @@ public class Settings
                 {
                     serial.BaudRate = device.BaudRate;
                     serial.DataBits = device.DataBits;
-                    serial.Parity = Parity.Even;
-                    serial.StopBits = StopBits.One;
+                    serial.Parity = device.Parity;
+                    serial.StopBits = device.StopBits;
                     serial.PortName = device.SerialPort;
                 }
 
                 settings.trace = TraceLevel.Info;
                 settings.client.InterfaceType = device.InterfaceType;
                 settings.client.Plc.Reset();
-                settings.client.Authentication = Authentication.None;
+                settings.client.Authentication = Authentication.None; //VSUDE ZATIM NONE neresime authentificaci
                 break;
 
             case InterfaceType.HDLC:
@@ -71,15 +71,15 @@ public class Settings
                 {
                     serial.BaudRate = device.BaudRate;
                     serial.DataBits = device.DataBits;
-                    serial.Parity = Parity.Even;
-                    serial.StopBits = StopBits.One;
+                    serial.Parity = device.Parity;
+                    serial.StopBits = device.StopBits;
                     serial.PortName = device.SerialPort;
                 }
 
                 settings.trace = TraceLevel.Info;
                 settings.client.InterfaceType = device.InterfaceType;
                 settings.client.Plc.Reset();
-                settings.client.Authentication = Authentication.None;
+                settings.client.Authentication = Authentication.None; //VSUDE ZATIM NONE neresime authentificaci
                 break;
 
             default:

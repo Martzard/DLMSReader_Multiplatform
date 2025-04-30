@@ -6,6 +6,7 @@
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" />
+        <HeadOutlet /> @* <- tady je důležité *@
     </Found>
     <NotFound>
         <p>Stránka nenalezena.</p>

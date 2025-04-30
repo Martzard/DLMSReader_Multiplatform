@@ -1,0 +1,123 @@
+﻿.layout-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Levý panel */
+.sidebar {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    background-color: #f9f9f9;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+}
+
+    .sidebar h4 {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+/* Tlačítka nahoře */
+.sidebar-controls {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0;
+}
+
+    .sidebar-controls button {
+        width: 100%;
+        margin-bottom: 5px;
+        padding: 8px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+
+        .sidebar-controls button:first-child {
+            background-color: mediumseagreen;
+        }
+
+        .sidebar-controls button:last-child {
+            background-color: firebrick;
+        }
+
+/* Scrollovatelný seznam */
+.device-list-container {
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+}
+
+.device-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .device-list li {
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 5px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+        white-space: normal;
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
+    }
+
+        .device-list li:hover {
+            background-color: #f1f1f1;
+        }
+
+        .device-list li.selected {
+            background-color: #d0ebff;
+            border-color: #74c0fc;
+        }
+
+/* Pravý panel */
+.detail-panel {
+    flex-grow: 1;
+    min-width: 0;
+    padding: 0 20px 20px 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.device-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.detail-panel p,
+.detail-panel strong {
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.detail-panel h4 {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.connect-button-container {
+    margin-top: auto;
+    padding-top: 20px;
+}
+
+    .connect-button-container button {
+        background-color: dodgerblue;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
