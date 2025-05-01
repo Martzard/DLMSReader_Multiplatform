@@ -28,3 +28,23 @@ This means your device is available as: `/dev/ttyUSB0`
 ---
 
 ## Granting Serial Port Access
+
+Serial ports are protected. You need to be a member of the `dialout` group to access them without root:
+
+### 1. Add your user to the `dialout` group:
+
+```bash
+sudo usermod -a -G dialout $USER
+```
+
+### 2. Reboot your system
+### 3. Verify with:
+
+```bash
+groups
+```
+
+```
+yourname adm dialout sudo ...
+```
+
