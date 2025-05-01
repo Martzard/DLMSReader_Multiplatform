@@ -43,8 +43,32 @@ sudo usermod -a -G dialout $USER
 ```bash
 groups
 ```
-
+You should see a line like:
 ```
 yourname adm dialout sudo ...
 ```
+
+---
+## Application Integration
+
+Now you are good to go and run DLMSReader_Multiplatform.Photino app on your Linux machine. When adding your new device just use HDLC or HDLCWithModeE and choose your connected serial port.
+
+```csharp
+"/dev/ttyUSB0";
+```
+
+Make sure your application is running under the same user who is in the `dialout` group.
+
+---
+
+
+## Notes
+
+- FTDI or Silicon Labs CP210x drivers are typically loaded automatically by Linux.
+- You can check driver usage with:
+
+```bash
+udevadm info -a -n /dev/ttyUSB0 | grep DRIVER
+```
+
 
