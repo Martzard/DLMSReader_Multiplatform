@@ -11,11 +11,14 @@
     <div class="panels">
         <!-- Levý panel -->
         <aside class="sidebar">
+            <!-- Horní část levého panelu -->
             <div class="sidebar-header">
                 <button class="btn-load" @onclick="ReadAllObjects">Read objects</button>
+                <button class="btn-load" @onclick="ReadSelectedObject">Read selected object</button>
                 <button class="btn-back" @onclick="@(() => Nav.NavigateTo("/"))">Back</button>
                 <h5 class="sidebar-title">Objects</h5>
             </div>
+
 
             <div class="sidebar-body">
                 @if (connectionVM?.GroupedObjects.Count == 0)
@@ -80,6 +83,7 @@
     .panels {
         flex: 1;
         display: flex;
+        height: 100%;
         overflow: hidden;
     }
 
@@ -89,12 +93,21 @@
         border-right: 1px solid #ccc;
         display: flex;
         flex-direction: column;
+        height: 100%;
+        flex-shrink: 0; /* ⬅️ nepovolí zmenšení */
     }
 
     .sidebar-header {
         padding: 10px;
         border-bottom: 1px solid #ccc;
         flex-shrink: 0;
+    }
+
+    .sidebar-body {
+        padding: 10px;
+        overflow-y: auto;
+        flex-grow: 1;
+        min-height: 0; /* ⬅️ nutné pro správné scrollování ve flexboxu */
     }
 
     .btn-load,
@@ -121,12 +134,6 @@
         margin: 8px 0 0;
         font-size: 1rem;
         font-weight: normal;
-    }
-
-    .sidebar-body {
-        padding: 10px;
-        overflow-y: auto;
-        flex-grow: 1;
     }
 
     .object-group {
@@ -175,6 +182,8 @@
         padding: 20px;
         overflow-y: auto;
         min-width: 0;
+        height: 100%;
+        box-sizing: border-box;
     }
 
         .detail-panel h4 {
@@ -189,6 +198,7 @@
         overflow-x: auto;
     }
 </style>
+
 
 @code {
     [Parameter] public string DeviceName { get; set; } = "";
@@ -213,6 +223,16 @@
         if (connectionVM != null)
         {
             await connectionVM.ConnectToDeviceAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task ReadSelectedObject()
+    {
+        if (connectionVM != null && connectionVM.SelectedObject != null)
+        {
+            await connectionVM.ReadSelectedObjectAsync();
+            connectionVM.GetSelectedObjectText();
             StateHasChanged();
         }
     }

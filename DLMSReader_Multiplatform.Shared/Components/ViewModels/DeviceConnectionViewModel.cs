@@ -1,4 +1,4 @@
-using Gurux.DLMS.Objects;
+ï»¿using Gurux.DLMS.Objects;
 using DLMSReader_Multiplatform.Shared.Components.DLMS;
 using DLMSReader_Multiplatform.Shared.Components.Models;
 using DLMSReader_Multiplatform.Shared.Components.Data;
@@ -14,15 +14,13 @@ public class DeviceConnectionViewModel
     public DLMSDeviceModel Device { get; set; }
     public GXDLMSObject? SelectedObject { get; set; }
     public string ObjectDetailsString { get; set; } = string.Empty;
-
     public List<ObjectGroup> GroupedObjects { get; private set; } = new();
-
     public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService)
     {
         Device = device;
         _dbService = dbService;
 
-        // Pokus se naèíst objekty z DB
+        // Pokus se naÄÃ­st objekty z DB
         var loadedObjects = _dbService.LoadDeviceObjectsFromXml(device.Id);
         if (loadedObjects.Count > 0)
         {
@@ -32,13 +30,7 @@ public class DeviceConnectionViewModel
                 Device.DeviceObjects.Add(obj);
             }
 
-            GroupedObjects = Device.DeviceObjects
-                .GroupBy(o => o.ObjectType.ToString())
-                .Select(g => new ObjectGroup
-                {
-                    TypeName = g.Key,
-                    Items = g.ToList()
-                }).ToList();
+            RefreshGroupedObjects();
         }
     }
 
@@ -62,6 +54,15 @@ public class DeviceConnectionViewModel
         ObjectDetailsString = string.Join("\n", lines);
     }
 
+    public async Task ReadSelectedObjectAsync()
+    {
+        if (SelectedObject != null)
+        {
+            GXDLMSObject obtainedObject = await _connectionManager.GetObjectConnection(Device, SelectedObject);
+            UpdateDeviceObject(SelectedObject, obtainedObject);
+        }
+    }
+
     private void StoreDeviceObjects(GXDLMSObjectCollection objects)
     {
         if (objects.Count > 0)
@@ -72,17 +73,11 @@ public class DeviceConnectionViewModel
                 Device.DeviceObjects.Add(obj);
             }
 
-            // Seskup objekty do stromové struktury
-            GroupedObjects = Device.DeviceObjects
-                .GroupBy(o => o.ObjectType.ToString())
-                .Select(g => new ObjectGroup
-                {
-                    TypeName = g.Key,
-                    Items = g.ToList()
-                }).ToList();
+            // We will make tree structure from the objects --> ObjectGroup
+            RefreshGroupedObjects();
 
-            MyGXDLMSObjectCollection myallobjects = new MyGXDLMSObjectCollection(objects);
-            _dbService.SaveDeviceObjectsXml(Device.Id, myallobjects.CreateXml());
+
+            SaveObjectsToDatabase(objects);
         }
     }
 
@@ -96,6 +91,26 @@ public class DeviceConnectionViewModel
             allObjects.Clear();
             foreach (var obj in Device.DeviceObjects)
                 allObjects.Add(obj);
+
+
+            SaveObjectsToDatabase(allObjects);
         }
+    }
+
+    private void RefreshGroupedObjects()
+    {
+        GroupedObjects = Device.DeviceObjects
+        .GroupBy(o => o.ObjectType.ToString())
+        .Select(g => new ObjectGroup
+        {
+            TypeName = g.Key,
+            Items = g.ToList()
+        }).ToList();
+    }
+
+    private void SaveObjectsToDatabase(GXDLMSObjectCollection objects)
+    {
+        var myallobjects = new MyGXDLMSObjectCollection(objects);
+        _dbService.SaveDeviceObjectsXml(Device.Id, myallobjects.CreateXml());
     }
 }
