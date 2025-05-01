@@ -1,6 +1,3 @@
-using System.Linq;
-using System.Threading.Tasks;
-using Gurux.DLMS;
 using Gurux.DLMS.Objects;
 using DLMSReader_Multiplatform.Shared.Components.DLMS;
 using DLMSReader_Multiplatform.Shared.Components.Models;
@@ -18,10 +15,31 @@ public class DeviceConnectionViewModel
     public GXDLMSObject? SelectedObject { get; set; }
     public string ObjectDetailsString { get; set; } = string.Empty;
 
+    public List<ObjectGroup> GroupedObjects { get; private set; } = new();
+
     public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService)
     {
         Device = device;
         _dbService = dbService;
+
+        // Pokus se naèíst objekty z DB
+        var loadedObjects = _dbService.LoadDeviceObjectsFromXml(device.Id);
+        if (loadedObjects.Count > 0)
+        {
+            Device.DeviceObjects.Clear();
+            foreach (var obj in loadedObjects)
+            {
+                Device.DeviceObjects.Add(obj);
+            }
+
+            GroupedObjects = Device.DeviceObjects
+                .GroupBy(o => o.ObjectType.ToString())
+                .Select(g => new ObjectGroup
+                {
+                    TypeName = g.Key,
+                    Items = g.ToList()
+                }).ToList();
+        }
     }
 
     public async Task ConnectToDeviceAsync()
@@ -53,6 +71,16 @@ public class DeviceConnectionViewModel
             {
                 Device.DeviceObjects.Add(obj);
             }
+
+            // Seskup objekty do stromové struktury
+            GroupedObjects = Device.DeviceObjects
+                .GroupBy(o => o.ObjectType.ToString())
+                .Select(g => new ObjectGroup
+                {
+                    TypeName = g.Key,
+                    Items = g.ToList()
+                }).ToList();
+
             MyGXDLMSObjectCollection myallobjects = new MyGXDLMSObjectCollection(objects);
             _dbService.SaveDeviceObjectsXml(Device.Id, myallobjects.CreateXml());
         }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Wasm", "DLMSReader_Multiplatform.Wasm\DLMSReader_Multiplatform.Wasm.csproj", "{B902A473-C173-4C37-B3DF-7D47D463A782}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Web", "DLMSReader_Multiplatform.Web\DLMSReader_Multiplatform.Web.csproj", "{806BB6C2-54DE-2C71-959F-2F73F31F03F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,18 @@ Global
 		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|x64.Build.0 = Release|Any CPU
 		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|x86.ActiveCfg = Release|Any CPU
 		{B902A473-C173-4C37-B3DF-7D47D463A782}.Release|x86.Build.0 = Release|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Debug|x64.Build.0 = Debug|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Debug|x86.Build.0 = Debug|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Release|x64.ActiveCfg = Release|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Release|x64.Build.0 = Release|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Release|x86.ActiveCfg = Release|Any CPU
+		{806BB6C2-54DE-2C71-959F-2F73F31F03F9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,27 +14,39 @@
             <div class="sidebar-header">
                 <button class="btn-load" @onclick="ReadAllObjects">Read objects</button>
                 <button class="btn-back" @onclick="@(() => Nav.NavigateTo("/"))">Back</button>
-                <h5 class="sidebar-title">Objekty</h5>
+                <h5 class="sidebar-title">Objects</h5>
             </div>
 
             <div class="sidebar-body">
-                @if (connectionVM?.Device.DeviceObjects?.Count == 0)
+                @if (connectionVM?.GroupedObjects.Count == 0)
                 {
                     <p><em>There are no objects to display.</em></p>
                     <p><em>Please read objects first.</em></p>
                 }
                 else
                 {
-                    <ul class="device-list">
-                        @foreach (var obj in connectionVM.Device.DeviceObjects)
-                        {
-                            <li @onclick="() => SelectObject(obj)"
-                                class="@(connectionVM.SelectedObject == obj ? "selected" : "")">
-                                <strong>@obj.LogicalName</strong><br />
-                                <small>@obj.Description</small>
-                            </li>
-                        }
-                    </ul>
+                    @foreach (var group in connectionVM.GroupedObjects)
+                    {
+                        <div class="object-group">
+                            <div class="object-group-header" @onclick="() => ToggleGroup(group)">
+                                <strong>@group.TypeName (@group.Items.Count)</strong>
+                            </div>
+
+                            @if (group.IsExpanded)
+                            {
+                                <ul class="device-list">
+                                    @foreach (var obj in group.Items)
+                                    {
+                                        <li @onclick="() => SelectObject(obj)"
+                                            class="@(connectionVM.SelectedObject == obj ? "selected" : "")">
+                                            <strong>@obj.LogicalName</strong><br />
+                                            <small>@obj.Description</small>
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                        </div>
+                    }
                 }
             </div>
         </aside>
@@ -72,9 +84,7 @@
     }
 
     .sidebar {
-        width: 200px;
-        min-width: 200px;
-        max-width: 200px;
+        width: 240px;
         background: #f9f9f9;
         border-right: 1px solid #ccc;
         display: flex;
@@ -119,6 +129,23 @@
         flex-grow: 1;
     }
 
+    .object-group {
+        margin-bottom: 3px;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+    }
+
+    .object-group-header {
+        background: #eee;
+        padding: 8px;
+        font-weight: bold;
+        white-space: normal;
+        font-size: 0.8rem;
+        word-wrap: break-word;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+    }
+
     .device-list {
         list-style: none;
         margin: 0;
@@ -127,9 +154,7 @@
 
         .device-list li {
             padding: 10px;
-            border: 1px solid #ccc;
-            margin-bottom: 5px;
-            border-radius: 6px;
+            border-bottom: 1px solid #ddd;
             cursor: pointer;
             transition: background 0.2s ease;
             word-wrap: break-word;
@@ -142,7 +167,7 @@
 
             .device-list li.selected {
                 background: #d0ebff;
-                border-color: #74c0fc;
+                border-left: 4px solid #339af0;
             }
 
     .detail-panel {
@@ -199,5 +224,10 @@
             connectionVM.SelectedObject = obj;
             connectionVM.GetSelectedObjectText();
         }
+    }
+
+    private void ToggleGroup(ObjectGroup group)
+    {
+        group.IsExpanded = !group.IsExpanded;
     }
 }

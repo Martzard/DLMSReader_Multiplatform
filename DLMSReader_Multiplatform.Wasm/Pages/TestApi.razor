@@ -1,0 +1,41 @@
+﻿@page "/test-api"
+@inject HttpClient Http
+
+<h3>Devices from API</h3>
+
+@if (devices == null)
+{
+    <p><em>Loading...</em></p>
+}
+else if (devices.Count == 0)
+{
+    <p>No devices found.</p>
+}
+else
+{
+    <ul>
+        @foreach (var device in devices)
+        {
+            <li>@device.Name (@device.ServerAddress:@device.Port)</li>
+        }
+    </ul>
+}
+
+@code {
+    private List<DLMSDeviceModel>? devices;
+
+    protected override async Task OnInitializedAsync()
+    {
+        devices = await Http.GetFromJsonAsync<List<DLMSDeviceModel>>("api/devices");
+    }
+
+    public class DLMSDeviceModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string ServerAddress { get; set; } = string.Empty;
+        public int Port { get; set; }
+        public string InterfaceType { get; set; } = string.Empty;
+        public bool LogicalNameReferencing { get; set; }
+    }
+}
