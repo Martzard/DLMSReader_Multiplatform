@@ -1,25 +1,27 @@
 ﻿@page "/connect-device/{DeviceName}"
 @using DLMSReader_Multiplatform.Shared.Components.Models
 @using DLMSReader_Multiplatform.Shared.Components.ViewModels
+@using DLMSReader_Multiplatform.Shared.Components.Data
 @using Gurux.DLMS.Objects
 @inject DeviceDataViewModel ViewModel
+@inject DeviceDatabaseService DbService
 @inject NavigationManager Nav
 
 <div class="connect-layout">
-    <!-- Horní část: celý viewport minus horní baru (pokud budeš mít) -->
     <div class="panels">
         <!-- Levý panel -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <button class="btn-load" @onclick="ReadAllObjects">Načíst objekty</button>
-                <button class="btn-back" @onclick="@(() => Nav.NavigateTo("/"))">Zpět</button>
+                <button class="btn-load" @onclick="ReadAllObjects">Read objects</button>
+                <button class="btn-back" @onclick="@(() => Nav.NavigateTo("/"))">Back</button>
                 <h5 class="sidebar-title">Objekty</h5>
             </div>
 
             <div class="sidebar-body">
                 @if (connectionVM?.Device.DeviceObjects?.Count == 0)
                 {
-                    <p><em>Žádné objekty zatím nebyly načteny.</em></p>
+                    <p><em>There are no objects to display.</em></p>
+                    <p><em>Please read objects first.</em></p>
                 }
                 else
                 {
@@ -50,7 +52,7 @@
             }
             else
             {
-                <p><em>Vyber objekt ze seznamu vlevo.</em></p>
+                <p><em>Choose an object from the list.</em></p>
             }
         </section>
     </div>
@@ -69,11 +71,10 @@
         overflow: hidden;
     }
 
-    /* ── Levý panel ── */
     .sidebar {
-        width: 250px;
-        min-width: 250px;
-        max-width: 250px;
+        width: 200px;
+        min-width: 200px;
+        max-width: 200px;
         background: #f9f9f9;
         border-right: 1px solid #ccc;
         display: flex;
@@ -118,7 +119,6 @@
         flex-grow: 1;
     }
 
-    /* seznam */
     .device-list {
         list-style: none;
         margin: 0;
@@ -145,12 +145,11 @@
                 border-color: #74c0fc;
             }
 
-    /* ── Pravý panel ── */
     .detail-panel {
         flex-grow: 1;
         padding: 20px;
         overflow-y: auto;
-        min-width: 0; /* důležité pro flex */
+        min-width: 0;
     }
 
         .detail-panel h4 {
@@ -175,9 +174,13 @@
     {
         var device = ViewModel.AllDevices.FirstOrDefault(d => d.Name == DeviceName);
         if (device != null)
-            connectionVM = new DeviceConnectionViewModel(device);
+        {
+            connectionVM = new DeviceConnectionViewModel(device, DbService);
+        }
         else
+        {
             Nav.NavigateTo("/");
+        }
     }
 
     private async Task ReadAllObjects()
