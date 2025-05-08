@@ -1,5 +1,3 @@
-using System;
-// using DLMS_Diplomka_.Shared.Logging;
 using Gurux.Common;
 using Gurux.DLMS;
 using Gurux.DLMS.ASN;

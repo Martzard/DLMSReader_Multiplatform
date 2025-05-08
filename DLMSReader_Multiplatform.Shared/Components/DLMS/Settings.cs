@@ -5,7 +5,6 @@ using Gurux.DLMS;
 using Gurux.Net;
 using DLMSReader_Multiplatform.Shared.Components.Models;
 using Gurux.Serial;
-using System.IO.Ports;
 using System.Diagnostics;
 
 namespace DLMSReader_Multiplatform.Shared.Components.DLMS;

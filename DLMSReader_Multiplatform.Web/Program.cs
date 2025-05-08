@@ -1,69 +1,50 @@
-using DLMSReader_Multiplatform.Shared.Components.Data;
-using DLMSReader_Multiplatform.Shared.Components.Models;
+﻿// Program.cs ─ DLMSReader_Multiplatform.Web
+using DLMSReader_Multiplatform.Shared;                       // App.razor + Pages v RCL
+using DLMSReader_Multiplatform.Shared.Components.ViewModels; // tvoje ViewModely
+using DLMSReader_Multiplatform.Shared.Components.Data;       // SQLite DAL
 
 var builder = WebApplication.CreateBuilder(args);
 
-// === Register services ===
-var dbPath = Path.Combine("Data", "devices.db");
-Directory.CreateDirectory("Data");
+// ──────────────────────────────────────────────────
+// 1) Služby
+// ──────────────────────────────────────────────────
+builder.Services.AddRazorPages();        // _Host.cshtml je Razor Page
+builder.Services.AddServerSideBlazor();  // Blazor Server (SignalR circuit)
 
+// antiforgery tokeny (vyžaduje je Razor Pages & Blazor od .NET 8)
+builder.Services.AddAntiforgery();
+
+// tvoje perzistentní služby
+var dbPath = Path.Combine(AppContext.BaseDirectory, "devices.db3");
 builder.Services.AddSingleton(new DeviceDatabaseService(dbPath));
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSingleton<DeviceDataViewModel>();
 
 var app = builder.Build();
 
+// ──────────────────────────────────────────────────
+// 2) Middleware pipeline
+// ──────────────────────────────────────────────────
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();   // detailní chyby
+}
+else
+{
+    app.UseExceptionHandler("/Error");
+    app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection();  // volitelné, ale běžné
+app.UseStaticFiles();       // servíruje _framework/blazor.server.js
 
-// === Devices endpoints ===
+app.UseRouting();           // povinné pro endpoint routing
+app.UseAntiforgery();       // MUSÍ být za UseRouting a před mapováním endpointů
 
-app.MapGet("/api/devices", (DeviceDatabaseService db) =>
-{
-    return Results.Ok(db.GetAllDevices());
-});
+// ──────────────────────────────────────────────────
+// 3) Mapování endpointů
+// ──────────────────────────────────────────────────
+app.MapBlazorHub();                 // SignalR hub /_blazor
+app.MapFallbackToPage("/_Host");    // Razor Page, která hostí <component>
 
-app.MapPost("/api/devices", (DeviceDatabaseService db, DLMSDeviceModel device) =>
-{
-    db.SaveDevice(device);
-    return Results.Ok(device);
-});
-
-app.MapDelete("/api/devices/{id:int}", (DeviceDatabaseService db, int id) =>
-{
-    db.DeleteDevice(id);
-    return Results.NoContent();
-});
-
-// === Example: WeatherForecast ===
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast = Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-})
-.WithName("GetWeatherForecast");
-
+// hotovo
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
