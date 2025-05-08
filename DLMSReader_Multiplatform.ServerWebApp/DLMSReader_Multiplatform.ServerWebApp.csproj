@@ -8,8 +8,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DLMSReader_Multiplatform.Shared\DLMSReader_Multiplatform.Shared.csproj" />
-	<PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.0" />
-	<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
   </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
+	</ItemGroup>
 
 </Project>

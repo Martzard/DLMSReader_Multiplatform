@@ -1,17 +1,10 @@
 ﻿@namespace DLMSReader_Multiplatform.Shared
-@rendermode Microsoft.AspNetCore.Components.Web.RenderMode.InteractiveServer
-
-
-@* <Antiforgery /> *@   @* vloží CSRF token do stránky *@
-
-
 
 <Router AppAssembly="@typeof(App).Assembly">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" />
-        <HeadOutlet /> @* <- tady je důležité *@
     </Found>
     <NotFound>
-        <p>Stránka nenalezena.</p>
+        <p>Page not found.</p>
     </NotFound>
 </Router>

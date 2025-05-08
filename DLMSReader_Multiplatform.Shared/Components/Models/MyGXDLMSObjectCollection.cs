@@ -21,7 +21,7 @@ class MyGXDLMSObjectCollection : GXDLMSObjectCollection
         {
             GXXmlWriterSettings settings = new GXXmlWriterSettings();
             settings.Values = true;
-            settings.IgnoreDefaultValues = true;
+            settings.IgnoreDefaultValues = false;
             settings.IgnoreDescription = false;
 
             using MemoryStream ms = new MemoryStream();

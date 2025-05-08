@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Ph
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Maui", "DLMSReader_Multiplatform.Maui\DLMSReader_Multiplatform.Maui.csproj", "{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.Web", "DLMSReader_Multiplatform.Web\DLMSReader_Multiplatform.Web.csproj", "{18BA507B-349B-47AC-B15C-F49266D1E44C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLMSReader_Multiplatform.ServerWebApp", "DLMSReader_Multiplatform.ServerWebApp\DLMSReader_Multiplatform.ServerWebApp.csproj", "{4340DA60-E45A-43DD-80ED-57C5C91F8562}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,18 +58,18 @@ Global
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Release|x64.Build.0 = Release|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Release|x86.ActiveCfg = Release|Any CPU
 		{1F4E7D92-E5FF-4CB4-BF88-BC2A196F2D55}.Release|x86.Build.0 = Release|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Debug|x64.Build.0 = Debug|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Debug|x86.Build.0 = Debug|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Release|x64.ActiveCfg = Release|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Release|x64.Build.0 = Release|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Release|x86.ActiveCfg = Release|Any CPU
-		{18BA507B-349B-47AC-B15C-F49266D1E44C}.Release|x86.Build.0 = Release|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Debug|x64.Build.0 = Debug|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Debug|x86.Build.0 = Debug|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Release|x64.ActiveCfg = Release|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Release|x64.Build.0 = Release|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Release|x86.ActiveCfg = Release|Any CPU
+		{4340DA60-E45A-43DD-80ED-57C5C91F8562}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
