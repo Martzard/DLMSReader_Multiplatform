@@ -1,5 +1,7 @@
 using DLMSReader_Multiplatform.Photino.Components;
 using DLMSReader_Multiplatform.Shared.Components.Data;
+using DLMSReader_Multiplatform.Shared.Components.DLMS;
+using DLMSReader_Multiplatform.Shared.Components.Services;
 using DLMSReader_Multiplatform.Shared.Components.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Photino.Blazor;
@@ -20,7 +22,9 @@ class Program
             var dbService = new DeviceDatabaseService(dbPath);
             var viewModel = new DeviceDataViewModel(dbService);
 
-
+            appBuilder.Services.AddSingleton<ILogService, LogService>();
+            appBuilder.Services.AddTransient<DLMSConnectionManager>();
+            appBuilder.Services.AddTransient<DeviceConnectionViewModel>();
             appBuilder.Services.AddLogging();
             appBuilder.Services.AddSingleton(dbService);
             appBuilder.Services.AddSingleton(viewModel);
