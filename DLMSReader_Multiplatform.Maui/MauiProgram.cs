@@ -1,7 +1,8 @@
 ﻿using DLMSReader_Multiplatform.Shared.Components.ViewModels;
 using Microsoft.Extensions.Logging;
-using DLMSReader_Multiplatform.Maui.Services;
 using DLMSReader_Multiplatform.Shared.Components.Data;
+using DLMSReader_Multiplatform.Shared.Components.Services;
+using DLMSReader_Multiplatform.Shared.Components.DLMS;
 
 namespace DLMSReader_Multiplatform.Maui;
 
@@ -17,6 +18,10 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             });
 
+
+        builder.Services.AddSingleton<ILogService, LogService>();
+        builder.Services.AddTransient<DLMSConnectionManager>();
+        builder.Services.AddTransient<DeviceConnectionViewModel>();
         builder.Services.AddMauiBlazorWebView();
         builder.Services.AddSingleton<DeviceDataViewModel>();
         var dbPath = Path.Combine(FileSystem.AppDataDirectory, "DevicesDB.db3");

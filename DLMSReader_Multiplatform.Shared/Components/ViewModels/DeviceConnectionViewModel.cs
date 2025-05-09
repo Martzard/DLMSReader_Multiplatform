@@ -7,7 +7,7 @@ namespace DLMSReader_Multiplatform.Shared.Components.ViewModels;
 
 public class DeviceConnectionViewModel
 {
-    private readonly DLMSConnectionManager _connectionManager = new();
+    private readonly DLMSConnectionManager _connectionManager;
     private GXDLMSObjectCollection allObjects = new();
     private readonly DeviceDatabaseService _dbService;
 
@@ -15,10 +15,19 @@ public class DeviceConnectionViewModel
     public GXDLMSObject? SelectedObject { get; set; }
     public string ObjectDetailsString { get; set; } = string.Empty;
     public List<ObjectGroup> GroupedObjects { get; private set; } = new();
-    public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService)
+
+    public DeviceConnectionViewModel WithDevice(DLMSDeviceModel device)
+    {
+        // vytvoří novou instanci se správnými závislostmi
+        return new DeviceConnectionViewModel(device, _dbService, _connectionManager);
+    }
+
+    public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService, DLMSConnectionManager connectionManager)
     {
         Device = device;
         _dbService = dbService;
+        _connectionManager = connectionManager;
+
 
         // Pokus se načíst objekty z DB
         var loadedObjects = _dbService.LoadDeviceObjectsFromXml(device.Id);

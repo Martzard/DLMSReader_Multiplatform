@@ -14,4 +14,8 @@
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<Content Include="..\DLMSReader_Multiplatform.Shared\wwwroot\scripts\logHelpers.js"
+				 Link="_content\DLMSReader_Multiplatform.Shared\scripts\logHelpers.js" />
+	</ItemGroup>
 </Project>

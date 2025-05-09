@@ -18,6 +18,13 @@
     <PackageReference Include="Photino.Blazor" Version="4.0.13" />
   </ItemGroup>
 
+
+	<ItemGroup>
+		<Content Include="..\DLMSReader_Multiplatform.Shared\wwwroot\scripts\logHelpers.js"
+				 Link="_content\DLMSReader_Multiplatform.Shared\scripts\logHelpers.js" />
+	</ItemGroup>
+	
+	
   <ItemGroup>
     <ProjectReference Include="../DLMSReader_Multiplatform.Shared/DLMSReader_Multiplatform.Shared.csproj" />
   </ItemGroup>

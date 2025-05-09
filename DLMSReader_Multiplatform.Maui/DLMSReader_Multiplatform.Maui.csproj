@@ -43,7 +43,15 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
     </PropertyGroup>
 
+	<ItemGroup>
+		<MauiBlazorWebViewAsset
+			Include="..\DLMSReader_Multiplatform.Shared\wwwroot\scripts\logHelpers.js"
+			Link="wwwroot\_content\DLMSReader_Multiplatform.Shared\scripts\logHelpers.js" />
+	</ItemGroup>
+	
     <ItemGroup>
+
+		
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
