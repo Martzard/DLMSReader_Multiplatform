@@ -18,7 +18,7 @@
         <aside class="sidebar">
             <!-- Horní část levého panelu -->
             <div class="sidebar-header">
-                <button class="btn-load" @onclick="ReadAllObjects">Read objects</button>
+                <button class="btn-load" @onclick="ReadAllObjects">Read all objects</button>
                 <button class="btn-load" @onclick="ReadSelectedObject">Read selected object</button>
                 <button class="btn-back" @onclick="@(() => Nav.NavigateTo("/"))">Back</button>
                 <h5 class="sidebar-title">Objects</h5>
@@ -59,9 +59,8 @@
             </div>
         </aside>
 
-        <!-- Pravý panel -->
+        <!-- Panel napravo -->
         <section class="detail-panel">
-            <!-- hlavní (scrollovatelná) část -->
             <div class="details-body">
                 @if (connectionVM?.Device.InterfaceType == Gurux.DLMS.Enums.InterfaceType.WRAPPER)
                 {
@@ -78,16 +77,15 @@
                 }
             </div>
 
-            <!-- dole přilepená konzole -->
-            <div class="log-console">
-                <pre class="log-content" @ref="logRef">
+            <div class="log-console" @ref="logRef">
+                
+                <pre class="log-content">
                     @foreach (var line in Logger.Lines)
                     {
                         @line
-
-                        <br />
+                    <br />
                     }
-        </pre>
+                </pre>
             </div>
         </section>
     </div>
@@ -100,7 +98,7 @@
         flex-direction: column;
         flex-grow: 1;
         padding: 20px;
-        overflow: hidden; /* dáme pryč auto-scroll parenta */
+        overflow: hidden;
         min-width: 0;
         height: 100%;
         box-sizing: border-box;
@@ -120,12 +118,13 @@
         background: #111;
         color: white;
         font-family: "Consolas", monospace;
-        font-size: 0.85rem;
-        line-height: 1.25rem;
+        font-size: 0.75rem;
+        line-height: 0.75rem;
         border-radius: 6px;
         padding: 8px;
         box-shadow: inset 0 0 4px rgba(0,0,0,.6);
         overflow-y: auto; /* vlastní scroll, když log přeroste */
+        resize: vertical;
     }
 
     .log-content {
@@ -275,9 +274,9 @@
         var device = ViewModel.AllDevices.FirstOrDefault(d => d.Name == DeviceName);
         if (device != null)
         {
-            connectionVM = ActivatorUtilities.CreateInstance<DeviceConnectionViewModel>(
-                               Services,             // IServiceProvider z @inject
-                               device);             //connectionVM = new DeviceConnectionViewModel(device, DbService);
+            connectionVM = Services
+               .GetRequiredService<DeviceConnectionViewModel>()   // instanci vezme DI
+               .WithDevice(device);                               // a tady jí předám Device         //connectionVM = new DeviceConnectionViewModel(device, DbService);
         }
         else
         {

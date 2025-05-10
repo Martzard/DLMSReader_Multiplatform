@@ -2,6 +2,10 @@
 using DLMSReader_Multiplatform.Shared.Components.DLMS;
 using DLMSReader_Multiplatform.Shared.Components.Models;
 using DLMSReader_Multiplatform.Shared.Components.Data;
+using Microsoft.Extensions.DependencyInjection;
+using DLMSReader_Multiplatform.Shared.Components.Services;
+using Gurux.DLMS.Enums;
+using Task = System.Threading.Tasks.Task;
 
 namespace DLMSReader_Multiplatform.Shared.Components.ViewModels;
 
@@ -10,27 +14,44 @@ public class DeviceConnectionViewModel
     private readonly DLMSConnectionManager _connectionManager;
     private GXDLMSObjectCollection allObjects = new();
     private readonly DeviceDatabaseService _dbService;
+    private readonly ILogService _log;
+
 
     public DLMSDeviceModel Device { get; set; }
     public GXDLMSObject? SelectedObject { get; set; }
     public string ObjectDetailsString { get; set; } = string.Empty;
     public List<ObjectGroup> GroupedObjects { get; private set; } = new();
 
-    public DeviceConnectionViewModel WithDevice(DLMSDeviceModel device)
-    {
-        // vytvoří novou instanci se správnými závislostmi
-        return new DeviceConnectionViewModel(device, _dbService, _connectionManager);
-    }
 
-    public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService, DLMSConnectionManager connectionManager)
+    /* ==== 1) Konstruktor pro DI  ================================ */
+    [ActivatorUtilitiesConstructor]
+    public DeviceConnectionViewModel(DeviceDatabaseService dbService, DLMSConnectionManager connectionManager, ILogService log)
     {
-        Device = device;
         _dbService = dbService;
         _connectionManager = connectionManager;
+        _log = log;
+    }
 
 
+    /* ==== 3) Metoda, kterou volá stránka/Photino ================ */
+    public DeviceConnectionViewModel WithDevice(DLMSDeviceModel device)
+    {
+        Device = device;
+        LoadObjectsFromDatabase();
+        return this;               // umožní řetězení volání (fluent API)
+    }
+
+    /* ==== 2) Konstruktor „ruční“ – když už mám i Device ========== */
+    public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService, DLMSConnectionManager connectionManager, ILogService log)
+        : this(dbService, connectionManager, log)          // zavolá první ctor
+    {
+        WithDevice(device);                                // + rovnou nastaví zařízení
+    }
+
+    private void LoadObjectsFromDatabase()
+    {
         // Pokus se načíst objekty z DB
-        var loadedObjects = _dbService.LoadDeviceObjectsFromXml(device.Id);
+        var loadedObjects = _dbService.LoadDeviceObjectsFromXml(Device.Id);
         if (loadedObjects.Count > 0)
         {
             Device.DeviceObjects.Clear();
