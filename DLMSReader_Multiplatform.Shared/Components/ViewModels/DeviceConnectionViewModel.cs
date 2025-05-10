@@ -23,7 +23,7 @@ public class DeviceConnectionViewModel
     public List<ObjectGroup> GroupedObjects { get; private set; } = new();
 
 
-    /* ==== 1) Konstruktor pro DI  ================================ */
+    //Tohle je konstruktor pro Dependency Injection
     [ActivatorUtilitiesConstructor]
     public DeviceConnectionViewModel(DeviceDatabaseService dbService, DLMSConnectionManager connectionManager, ILogService log)
     {
@@ -32,25 +32,24 @@ public class DeviceConnectionViewModel
         _log = log;
     }
 
-
-    /* ==== 3) Metoda, kterou volá stránka/Photino ================ */
+    //Tuto metodu volaji stranky, Photino a Maui
     public DeviceConnectionViewModel WithDevice(DLMSDeviceModel device)
     {
         Device = device;
         LoadObjectsFromDatabase();
-        return this;               // umožní řetězení volání (fluent API)
+        return this;               // Tohle nam pry umozni retezeni volani
     }
 
-    /* ==== 2) Konstruktor „ruční“ – když už mám i Device ========== */
+    //tohle je konstruktor pro zavolani natvrdo.... momentalne nepouzivane
     public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService, DLMSConnectionManager connectionManager, ILogService log)
-        : this(dbService, connectionManager, log)          // zavolá první ctor
+        : this(dbService, connectionManager, log)          // zavolá první konstruktor?
     {
-        WithDevice(device);                                // + rovnou nastaví zařízení
+        WithDevice(device);                                // A rovnou nastavime zarizeni
     }
 
     private void LoadObjectsFromDatabase()
     {
-        // Pokus se načíst objekty z DB
+        // Zde se pokousime nacist objekty z databaze
         var loadedObjects = _dbService.LoadDeviceObjectsFromXml(Device.Id);
         if (loadedObjects.Count > 0)
         {
