@@ -5,6 +5,7 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<ApplicationIcon>Resources\app.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,8 +27,18 @@
 	<ItemGroup>
 		<ApplicationIcon Include="appicon.ico" />
 	</ItemGroup>
-	
-  <ItemGroup>
+
+
+	<ItemGroup>
+		<Content Include="Resources\app.ico">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\app.png">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
     <ProjectReference Include="../DLMSReader_Multiplatform.Shared/DLMSReader_Multiplatform.Shared.csproj" />
   </ItemGroup>
 

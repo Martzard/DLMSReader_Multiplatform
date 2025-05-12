@@ -35,7 +35,13 @@ class Program
 
 
         var app = appBuilder.Build();
+        //var baseDir = AppContext.BaseDirectory;
 
+        //if (OperatingSystem.IsWindows())
+        //    app.MainWindow.SetIconFile(Path.Combine(baseDir, "Resources", "app.ico"));
+        //else if (OperatingSystem.IsLinux())
+        //    app.MainWindow.SetIconFile(Path.Combine(baseDir, "Resources", "app.png"));
+        ////app.MainWindow.SetIconFile(Path.Combine(baseDir, "Resources", "app.png"));
 
         app.MainWindow.SetTitle("DLMSReader Multiplatform");
         
