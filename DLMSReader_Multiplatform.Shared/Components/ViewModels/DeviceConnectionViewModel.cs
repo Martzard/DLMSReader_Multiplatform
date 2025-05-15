@@ -4,7 +4,6 @@ using DLMSReader_Multiplatform.Shared.Components.Models;
 using DLMSReader_Multiplatform.Shared.Components.Data;
 using Microsoft.Extensions.DependencyInjection;
 using DLMSReader_Multiplatform.Shared.Components.Services;
-using Gurux.DLMS.Enums;
 using Task = System.Threading.Tasks.Task;
 
 namespace DLMSReader_Multiplatform.Shared.Components.ViewModels;

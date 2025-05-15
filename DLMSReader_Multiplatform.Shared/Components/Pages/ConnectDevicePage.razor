@@ -14,7 +14,6 @@
 
 <div class="connect-layout">
 
-    <!-- horní bar je vidět vždy, na desktopu jen skrývá první tlačítko -->
     <nav class="top-bar">
         <button class="btn-top btn-objects" @onclick="ToggleObjectsSidebar">Objects</button>
         <button class="btn-top" @onclick="ReadAllObjects">Read all</button>
@@ -22,9 +21,7 @@
         <button class="btn-top btn-back" @onclick="@(() => Nav.NavigateTo("/"))">Back</button>
     </nav>
 
-    <!-- hlavní flex-kontejner (na desktopu: řádek, na mobilu: sloupec) -->
     <div class="panels">
-        <!-- panel s objekty – na desktopu statický vlevo, na mobilu slide-in -->
         <aside class="sidebar @(showObjects ? "open" : "")">
             <div class="sidebar-header desktop-only">
                 <h5 class="sidebar-title">Objects</h5>
@@ -64,10 +61,8 @@
             </div>
         </aside>
 
-        <!-- detail + log -->
         <section class="detail-panel">
-            @if (connectionVM?.Device.InterfaceType
-            == Gurux.DLMS.Enums.InterfaceType.WRAPPER)
+            @if (connectionVM?.Device.InterfaceType == Gurux.DLMS.Enums.InterfaceType.WRAPPER)
             {
                 <h4>@($"{connectionVM.Device.Name} | {connectionVM.Device.InterfaceType} | {connectionVM.Device.ServerAddress}:{connectionVM.Device.Port}")</h4>
             }
@@ -97,9 +92,8 @@
     </div>
 </div>
 
-
 <style>
-    /* ----- společné styly ------------------------------------------------ */
+    /* ---------- globalni -------------------------------------------------- */
     * {
         box-sizing: border-box;
     }
@@ -110,6 +104,7 @@
         flex-direction: column;
     }
 
+    /* ---------- horni bar ------------------------------------------------- */
     .top-bar {
         flex: 0 0 48px;
         display: flex;
@@ -134,6 +129,7 @@
         background: firebrick;
     }
 
+    /* ---------- hlavni kontejnery ---------------------------------------- */
     .panels {
         flex: 1 1 auto;
         display: flex;
@@ -141,7 +137,7 @@
         overflow: hidden;
     }
 
-    /* sidebar – výchozí mobilní režim (slide-in zleva) -------------------- */
+    /* ---------- sidebar --------------------------------------------------- */
     .sidebar {
         position: fixed;
         top: 48px;
@@ -150,6 +146,7 @@
         height: calc(100% - 48px);
         background: #f9f9f9;
         overflow-y: auto;
+        overflow-x: hidden;
         transition: left .3s ease;
         z-index: 1000;
     }
@@ -158,20 +155,20 @@
             left: 0;
         }
 
-    .sidebar-body {
-        padding: 10px;
-    }
-
     .sidebar-header {
         padding: 10px;
         border-bottom: 1px solid #ccc;
+    }
+
+    .sidebar-body {
+        padding: 10px;
     }
 
     .desktop-only {
         display: none;
     }
 
-    /* objekt. detaily + log */
+    /* ---------- detail + log --------------------------------------------- */
     .detail-panel {
         flex: 1 1 auto;
         padding: 6px;
@@ -183,9 +180,9 @@
 
     .details-body {
         flex: 1 1 auto;
-        min-height: 0;
-        overflow: hidden;
         display: flex;
+        overflow: hidden;
+        min-height: 0;
     }
 
     .object-details {
@@ -208,51 +205,20 @@
         padding: 5px;
     }
 
-    /* ---- DESKTOP ≥ 768 px ------------------------------------------------ */
-    @@media (min-width:768px) {
-        .panels
-
-    {
-        flex-direction: row;
+    .log-content {
+        white-space: pre-wrap; 
+        word-break: break-all;
+        overflow-wrap: anywhere;
     }
 
-    /* sidebar se stane běžnou součástí flexu vlevo */
-    .sidebar{
-        position:static;
-        height:100%;
-        width:240px;
-        flex:0 0 240px;  
-        min-width:240px; 
-        max-width:240px;
-        border-right:1px solid #ccc;
-        transition:none;
-    }
-
-        .sidebar.open { /* nemá význam, ale ponecháno kvůli JS */
-        }
-
-    /* tlačítko 'Objects' nechceme ukazovat */
-    .btn-objects {
-        display: none;
-    }
-
-    .desktop-only {
-        display: block;
-    }
-    /* např. statický nadpis v sidebaru */
-    }
-
-    /* ----- drobnosti ----------------------------------------------------- */
-    h4 {
-        margin: 0 0 4px 0;
-    }
-
+    /* ---------- Seznam objektu ------------------------------------------- */
     .object-group {
         margin-bottom: 3px;
         border: 1px solid #ccc;
         border-radius: 2px;
     }
 
+    /* Nazvy skupin objektu */
     .object-group-header {
         background: #eee;
         padding: 8px;
@@ -260,12 +226,16 @@
         font-size: .8rem;
         cursor: pointer;
         border-bottom: 1px solid #ccc;
+        white-space: normal; 
+        overflow-wrap: anywhere;
+        word-break: break-word;
     }
 
     .device-list {
         list-style: none;
         margin: 0;
         padding: 0;
+        overflow-x: hidden;
     }
 
         .device-list li {
@@ -276,6 +246,11 @@
             overflow-wrap: anywhere;
         }
 
+            .device-list li strong,
+            .device-list li small {
+                white-space: normal;
+            }
+
             .device-list li:hover {
                 background: #f1f1f1;
             }
@@ -284,58 +259,73 @@
                 background: #d0ebff;
                 border-left: 4px solid #339af0;
             }
+
+    /* ---------- desktop ≥768 px ------------------------------------------ */
+    @@media (min-width:768px) {
+        .panels
+
+    {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        position: static;
+        left: 0 !important;
+        height: 100%;
+        width: 240px;
+        flex: 0 0 240px;
+        min-width: 240px;
+        max-width: 240px;
+        border-right: 1px solid #ccc;
+        transition: none;
+    }
+
+    .btn-objects {
+        display: none;
+    }
+
+    .desktop-only {
+        display: block;
+    }
+
+    }
+
+    /* ---------- drobnosti ------------------------------------------------- */
+    h4 {
+        margin: 0 0 4px 0;
+    }
 </style>
 
 @code {
     [Parameter] public string DeviceName { get; set; } = "";
-
     private DeviceConnectionViewModel? connectionVM;
     private ElementReference logRef;
     private bool scrollPending;
     private bool showObjects = false;
 
-    /* ---------- životní cyklus ---------- */
     protected override void OnInitialized()
     {
         Logger.LogUpdated += OnLogUpdated;
-
         var device = ViewModel.AllDevices.FirstOrDefault(d => d.Name == DeviceName);
         if (device != null)
-        {
-            connectionVM = Services.GetRequiredService<DeviceConnectionViewModel>()
-                                    .WithDevice(device);
-        }
+            connectionVM = Services.GetRequiredService<DeviceConnectionViewModel>().WithDevice(device);
         else Nav.NavigateTo("/");
     }
 
-    /* ---------- UI akce ---------- */
     private void ToggleObjectsSidebar() => showObjects = !showObjects;
 
-    private void OnLogUpdated()
-    {
-        scrollPending = true;
-        InvokeAsync(StateHasChanged);
-    }
+    private void OnLogUpdated() { scrollPending = true; InvokeAsync(StateHasChanged); }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool first)
     {
-        if (scrollPending)
-        {
-            scrollPending = false;
-            await JS.InvokeVoidAsync("scrollToEnd", logRef);
-        }
+        if (scrollPending) { scrollPending = false; await JS.InvokeVoidAsync("scrollToEnd", logRef); }
     }
 
     public void Dispose() => Logger.LogUpdated -= OnLogUpdated;
 
-    /* ---------- Device akce ---------- */
     private async Task ReadAllObjects()
     {
-        if (connectionVM != null)
-        {
-            await connectionVM.ConnectToDeviceAsync();
-            StateHasChanged();
-        }
+        if (connectionVM != null) { await connectionVM.ConnectToDeviceAsync(); StateHasChanged(); }
     }
 
     private async Task ReadSelectedObject()
@@ -354,8 +344,7 @@
         {
             connectionVM.SelectedObject = obj;
             connectionVM.GetSelectedObjectText();
-
-            showObjects = false;
+            showObjects = false;          // zavřít sidebar na mobilu
             StateHasChanged();
         }
     }
