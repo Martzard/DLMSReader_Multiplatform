@@ -1,0 +1,359 @@
+﻿@page "/add-device"
+@using DLMSReader_Multiplatform.Shared.Components.Models
+@using DLMSReader_Multiplatform.Shared.Components.ViewModels
+@using DLMSReader_Multiplatform.Shared.Components.Enums
+@using System.IO.Ports;
+@using Gurux.DLMS.Enums
+@inject DeviceDataViewModel ViewModel
+@inject NavigationManager Nav
+
+<div class="page-header-wrapper">
+    <div class="page-header-content">
+        <h4>Add new device</h4>
+    </div>
+</div>
+
+<!-- Horní menu lišta -->
+<div style="overflow-x:auto;white-space:nowrap;background-color:lightgray;padding:1px 0;position:sticky;top:0;z-index:500;">
+    <div style="display:flex;flex-wrap:nowrap;gap:2px;padding:0 5px;">
+        <button style="flex:0 0 auto;background:none;border:2px solid black;color:black;font-size:16px;" @onclick="@(() => SelectMenu("MainSettings"))">Main settings</button>
+        <button style="flex:0 0 auto;background:none;border:2px solid black;color:black;font-size:16px;" @onclick="@(() => SelectMenu("Security"))">Security</button>
+        <button style="flex:0 0 auto;background:none;border:2px solid black;color:black;font-size:16px;" @onclick="@(() => SelectMenu("Advanced"))">Advanced</button>
+    </div>
+</div>
+
+@if (SelectedMenu == "MainSettings")
+{
+    <div class="form-grid">
+        <div class="form-item">
+            <label>Device name:</label>
+            <input @bind="NewName" placeholder="Name" />
+        </div>
+
+        <div class="form-item">
+            <label>Interface:</label>
+            <select @bind="NewInterfaceType">
+                @foreach (InterfaceType type in Enum.GetValues(typeof(InterfaceType)))
+                {
+                    <option value="@type">@type</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="checkbox-item">
+        <label>
+            Logical Name Referencing
+            <input type="checkbox" @bind="NewLogicalNameReferencing" style="margin-right:8px;" />
+
+        </label>
+    </div>
+
+    <div class="form-grid">
+        <div class="form-item">
+            <label>Client Address:</label>
+            <input type="number" @bind="NewClientAddress" />
+        </div>
+        <div class="form-item">
+            <label>Logical Server:</label>
+            <input type="number" @bind="NewLogicalServerAddress" />
+        </div>
+        <div class="form-item">
+            <label>Physical Server:</label>
+            <input type="number" @bind="NewPhysicalServerAddress" />
+        </div>
+
+        @if (NewInterfaceType == InterfaceType.WRAPPER)
+        {
+            <div class="form-item">
+                <label>IP Addresd:</label>
+                <input @bind="NewServerAddress" placeholder="127.0.0.1" />
+            </div>
+            <div class="form-item">
+                <label>Port:</label>
+                <input type="number" @bind="NewPort" />
+            </div>
+        }
+        else
+        {
+            <div class="form-item">
+                <label>COM port</label>
+                <select @bind="SelectedPort">
+                    @foreach (string port in ComPorts)
+                    {
+                        <option value="@port">@port</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label>Baud Rate:</label>
+                <select @bind="NewBaudRate">
+                    @foreach (BaudRate rate in Enum.GetValues(typeof(BaudRate)))
+                    {
+                        <option value="@(rate)">@(rate)</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label>Data Bits:</label>
+                <input type="number" @bind="NewDataBits" />
+            </div>
+            <div class="form-item">
+                <label>Stop Bits:</label>
+                <select @bind="NewStopBits">
+                    @foreach (System.IO.Ports.StopBits s in Enum.GetValues(typeof(System.IO.Ports.StopBits)))
+                    {
+                        <option value="@s">@s</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-item">
+                <label>Parity:</label>
+                <select @bind="NewParity">
+                    @foreach (System.IO.Ports.Parity p in Enum.GetValues(typeof(System.IO.Ports.Parity)))
+                    {
+                        <option value="@p">@p</option>
+                    }
+                </select>
+            </div>
+        }
+
+        <div class="form-actions">
+            <button @onclick="ConfirmAddDevice">Add</button>
+            <button @onclick="NavigateBack">Back</button>
+        </div>
+    </div>
+}
+
+else if (SelectedMenu == "Security")
+{
+    <div style="padding:20px;">
+        <h4>Security Settings</h4>
+        <p>Now just placeholde for future security settings</p>
+    </div>
+}
+else if (SelectedMenu == "Advanced")
+{
+    <div style="padding:20px;">
+        <h4>Advanced Settings</h4>
+        <p>Now just placeholde for future advanced settings</p>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(Warning))
+{
+    <div class="alert alert-warning">
+        @Warning
+    </div>
+}
+
+
+@code {
+    private string NewName = "";
+    private string NewServerAddress = "127.0.0.1";
+    private int NewPort = 4059;
+    private InterfaceType NewInterfaceType = InterfaceType.WRAPPER;
+    private bool NewLogicalNameReferencing = true;
+
+    private BaudRate NewBaudRate = BaudRate.B9600;
+
+    private int NewDataBits = 8;
+    private System.IO.Ports.StopBits NewStopBits = System.IO.Ports.StopBits.One;
+    private System.IO.Ports.Parity NewParity = System.IO.Ports.Parity.None;
+
+    private int NewClientAddress = 1;
+    private int NewLogicalServerAddress = 1;
+    private int NewPhysicalServerAddress = 1;
+
+    private List<string> ComPorts = new();
+    private string? SelectedPort;
+
+    private string? Warning;
+
+    protected override void OnInitialized()
+    {
+        RefreshComPorts();   // načíst při otevření stránky
+    }
+
+    private string SelectedMenu = "MainSettings";
+
+    private void SelectMenu(string menu)
+    {
+        SelectedMenu = menu;
+    }
+
+    private void ConfirmAddDevice()
+    {
+
+
+        if (string.IsNullOrWhiteSpace(NewName))
+        {
+            Warning = "You have to fill new name of the device";
+            return;
+        }
+
+        if ((NewInterfaceType is InterfaceType.HDLC or InterfaceType.HdlcWithModeE) &&
+        string.IsNullOrWhiteSpace(SelectedPort))
+        {
+            //Warning = "You have to select a serial port.";
+            //return;
+            SelectedPort = "Not selected!!!"; //Zatim takto nechame pro debuging
+            
+        }
+
+        var newDevice = NewInterfaceType switch
+        {
+            //Síťový WRAPPER (TCP/UDP)
+            InterfaceType.WRAPPER =>
+                new DLMSDeviceModel(
+                    NewName,
+                    NewServerAddress,
+                    NewPort,
+                    NewInterfaceType,
+                    NewLogicalNameReferencing,
+                    NewClientAddress,
+                    NewLogicalServerAddress,
+                    NewPhysicalServerAddress),
+
+            //Obě sériové varianty – klasické HDLC i HDLC s Mode E
+            InterfaceType.HDLC or InterfaceType.HdlcWithModeE =>
+                new DLMSDeviceModel(
+                    NewName,
+                    SelectedPort!, //vime ze pokud neni zadny port vybrany, tak je nastaven na "Not selected!!! tudiz nebude fungovat ale ulozi se!
+                    (int)NewBaudRate,
+                    NewDataBits,
+                    NewStopBits,
+                    NewParity,
+                    NewInterfaceType,
+                    NewLogicalNameReferencing,
+                    NewClientAddress,
+                    NewLogicalServerAddress,
+                    NewPhysicalServerAddress),
+
+            //Pojistka pro budoucí hodnoty enumu... zatim nejsou jine nez vyse zminene podporovany
+            _ => throw new NotSupportedException(
+                     $"Interface {NewInterfaceType} Is not supported yet")
+        };
+
+        ViewModel.AddDevice(newDevice);
+        Nav.NavigateTo("/");
+    }
+
+    private void NavigateBack() => Nav.NavigateTo("/");
+
+    private void RefreshComPorts()
+    {
+        //Na platformach kde nacitani portu nema smysl nic nenacitame, protoze to za prve bude padat,
+        //za druhe neni aktualne potreba podpory COM portu na techto zarizenich --> Android a WebAssembly
+        if (OperatingSystem.IsBrowser() || OperatingSystem.IsAndroid())
+        {
+            ComPorts.Clear();       // necháme select prázdný
+            return;
+        }
+
+        try
+        {
+            ComPorts = SerialPort.GetPortNames().OrderBy(p => p, StringComparer.OrdinalIgnoreCase).ToList();
+
+            if (ComPorts.Count > 0 && SelectedPort is null)
+                SelectedPort = ComPorts[0];
+        }
+        catch
+        {
+            ComPorts.Clear();       // neočekávané selhání → vyprázdni seznam
+        }
+    }
+}
+
+<style>
+    .page-header-wrapper {
+    background-color: lightgray;
+    width: 100%;
+    padding: 5px 5px;
+    box-sizing: border-box;
+    }
+
+        .page-header-content {
+            width: 100%;
+            text-align: left;
+        }
+
+        .page-header-content h3 {
+            margin: 0;
+            color: black;
+        }
+
+    .form-grid {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 5px 1px;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 800px; /* omezeni sirky */
+    margin: 0 auto;
+    }
+
+    .form-item {
+        display: contents; /* umožní label + input být vedle sebe v gridu */
+    }
+
+        .form-item label {
+            text-align: left;
+            padding-right: 10px;
+            font-weight: bold;
+        }
+
+        .form-item input,
+        .form-item select {
+            min-width: 200px;
+            width: auto;
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+    .checkbox-item {
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+        .checkbox-item label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: bold;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+    .form-actions {
+        grid-column: 1 / span 2;
+        display: flex;
+        gap: 10px;
+        justify-content: flex-start;
+        margin-top: 20px;
+    }
+
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+            .form-actions button:hover {
+                background-color: #0056b3;
+            }
+</style>

@@ -22,7 +22,7 @@ public class DeviceConnectionViewModel
     public List<ObjectGroup> GroupedObjects { get; private set; } = new();
 
 
-    //Tohle je konstruktor pro Dependency Injection
+    //konstruktor pro Dependency Injection
     [ActivatorUtilitiesConstructor]
     public DeviceConnectionViewModel(DeviceDatabaseService dbService, DLMSConnectionManager connectionManager, ILogService log)
     {
@@ -36,10 +36,10 @@ public class DeviceConnectionViewModel
     {
         Device = device;
         LoadObjectsFromDatabase();
-        return this;               // Tohle nam pry umozni retezeni volani
+        return this;               // retezeni volani
     }
 
-    //tohle je konstruktor pro zavolani natvrdo.... momentalne nepouzivane
+    //konstruktor pro zavolani natvrdo.... momentalne nepouzivane
     public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService, DLMSConnectionManager connectionManager, ILogService log)
         : this(dbService, connectionManager, log)          // zavolá první konstruktor?
     {
@@ -103,8 +103,6 @@ public class DeviceConnectionViewModel
 
             // We will make tree structure from the objects --> ObjectGroup
             RefreshGroupedObjects();
-
-
             SaveObjectsToDatabase(objects);
         }
     }

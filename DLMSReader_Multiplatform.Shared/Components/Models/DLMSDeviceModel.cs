@@ -299,7 +299,7 @@ public class DLMSDeviceModel : INotifyPropertyChanged
             }
         }
 
-        // Vlastnost pro zobrazení konkretniho stringu do CollectionView objektu v UI
+        // Vlastnost pro zobrazeni konkretniho stringu do CollectionView objektu v UI
         public string CollectionViewDetailString
         {
             get
