@@ -7,8 +7,6 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data.Entities
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
-
-        //pry ? znamena ze muze byt null resp nehazi potom warning ze muze byt null
         public string? Name { get; set; }
         public string? ServerAddress { get; set; }
         public int Port { get; set; }

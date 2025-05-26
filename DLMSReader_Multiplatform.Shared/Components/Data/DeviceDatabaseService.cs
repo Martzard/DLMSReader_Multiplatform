@@ -3,6 +3,7 @@ using DLMSReader_Multiplatform.Shared.Components.Models;
 using Gurux.DLMS.Enums;
 using Gurux.DLMS.Objects;
 using SQLite;
+using System.IO.Ports;
 
 namespace DLMSReader_Multiplatform.Shared.Components.Data
 {
@@ -12,19 +13,18 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
 
         public DeviceDatabaseService(string dbPath)
         {
-            // Cesta k SQLite databázi
+            // Cesta k SQLite databazi
             //string dbPath = pathProvider.GetDatabasePath();
 
-            // Otevře nebo vytvoří databázi
+            // Otevře nebo vytvori databazi
             _db = new SQLiteConnection(dbPath);
 
-            // Vytvoří tabulku, pokud ještě neexistuje
+            // Vytvori tabulku, pokud jeste neexistuje
             _db.CreateTable<DeviceEntity>();
         }
 
-        /// <summary>
-        /// Načte všechna uložená zařízení z DB.
-        /// </summary>
+       
+        // Nacte vsechna ulozena zarizeni z DB.
         public List<DLMSDeviceModel> GetAllDevices()
         {
             var entities = _db.Table<DeviceEntity>().ToList();
@@ -43,7 +43,7 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
             var objects = new GXDLMSObjectCollection();
             if (entity == null)
             {
-                //TODO jeste vyresit jestli budu psat do konzole nebo to necham takto a jestli to takto umi taky vypsat do konzole... jeste nemam tuseni zejo
+                //TODO vyresit jestli budu psat do konzole nebo to necham takto...
                 throw new Exception($"Device s ID {deviceId} nebyl nalezen.");
             }
             else if (string.IsNullOrEmpty(entity.ObjectsXml))
@@ -63,9 +63,8 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
             return objects;
         }
 
-        /// <summary>
-        /// Uloží nové zařízení nebo aktualizuje existující.
-        /// </summary>
+        
+        // Ulozi nove zarizeni nebo aktualizuje existujici.
         public void SaveDevice(DLMSDeviceModel device)
         {
             var entity = MapModelToEntity(device);
@@ -86,7 +85,6 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
             var entity = _db.Table<DeviceEntity>().FirstOrDefault(o => o.Id == deviceId);
             if (entity == null)
             {
-                // buď ošetřit výjimkou, nebo entitu rovnou vytvořit
                 throw new Exception($"Device s ID {deviceId} nebyl nalezen.");
             }
             else
@@ -96,46 +94,87 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
             }
         }
 
-        /// <summary>
-        /// Odstraní zařízení podle ID.
-        /// </summary>
+       
+        // Odstrani zarizeni podle ID.
         public void DeleteDevice(int deviceId)
         {
             _db.Delete<DeviceEntity>(deviceId);
         }
 
-        // Mapování Entity → Model
+        // Mapovani Entity → Model
         private DLMSDeviceModel MapEntityToModel(DeviceEntity e)
         {
-            return new DLMSDeviceModel
+            if ((Enum.Parse<InterfaceType>(e.InterfaceType) == InterfaceType.HDLC) || (Enum.Parse<InterfaceType>(e.InterfaceType) == InterfaceType.HdlcWithModeE))
             {
-                Id = e.Id,
-                Name = e.Name,
-                ServerAddress = e.ServerAddress,
-                Port = e.Port,
-                InterfaceType = Enum.Parse<InterfaceType>(e.InterfaceType),
-                LogicalNameReferencing = e.LogicalNameReferencing,
-                SerialPort = e.SerialPort,
-                BaudRate = e.BaudRate,
-                DataBits = e.DataBits
-            };
+                return new DLMSDeviceModel
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    SerialPort = e.SerialPort,
+                    BaudRate = e.BaudRate,
+                    DataBits = e.DataBits,
+                    StopBits = (StopBits)e.StopBits,
+                    Parity = (Parity)e.Parity,
+                    InterfaceType = Enum.Parse<InterfaceType>(e.InterfaceType),
+                    LogicalNameReferencing = e.LogicalNameReferencing,
+                    ClientAddress = e.ClientAddress,
+                    LogicalServerAddress = e.LogicalServerAddress,
+                    PhysicalServerAddress = e.PhysicalServerAddress,
+                };
+            }
+            else
+            {
+                return new DLMSDeviceModel
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    ServerAddress = e.ServerAddress,
+                    Port = e.Port,
+                    InterfaceType = Enum.Parse<InterfaceType>(e.InterfaceType),
+                    LogicalNameReferencing = e.LogicalNameReferencing,
+                    ClientAddress = e.ClientAddress,
+                    LogicalServerAddress = e.LogicalServerAddress,
+                    PhysicalServerAddress = e.PhysicalServerAddress,
+                };
+            }
         }
 
-        // Mapování Model → Entity
+        // Mapovani Model → Entity
         private DeviceEntity MapModelToEntity(DLMSDeviceModel d)
         {
-            return new DeviceEntity
+            if (d.InterfaceType == InterfaceType.HDLC || d.InterfaceType == InterfaceType.HdlcWithModeE)
             {
-                Id = d.Id,
-                Name = d.Name,
-                ServerAddress = d.ServerAddress,
-                Port = d.Port,
-                InterfaceType = d.InterfaceType.ToString(),
-                LogicalNameReferencing = d.LogicalNameReferencing,
-                SerialPort = d.SerialPort,
-                BaudRate = d.BaudRate,
-                DataBits = d.DataBits
-            };
+                return new DeviceEntity
+                {
+                    Id = d.Id,
+                    Name = d.Name,
+                    SerialPort = d.SerialPort,
+                    BaudRate = d.BaudRate,
+                    DataBits = d.DataBits,
+                    StopBits = (int)d.StopBits,
+                    Parity = (int)d.Parity,
+                    InterfaceType = d.InterfaceType.ToString(),
+                    LogicalNameReferencing = d.LogicalNameReferencing,
+                    ClientAddress = d.ClientAddress,
+                    LogicalServerAddress = d.LogicalServerAddress,
+                    PhysicalServerAddress = d.PhysicalServerAddress
+                };
+            }
+            else
+            {
+                return new DeviceEntity
+                {
+                    Id = d.Id,
+                    Name = d.Name,
+                    ServerAddress = d.ServerAddress,
+                    Port = d.Port,
+                    InterfaceType = d.InterfaceType.ToString(),
+                    LogicalNameReferencing = d.LogicalNameReferencing,
+                    ClientAddress = d.ClientAddress,
+                    LogicalServerAddress = d.LogicalServerAddress,
+                    PhysicalServerAddress = d.PhysicalServerAddress
+                };
+            }
         }
     }
 }
