@@ -15,7 +15,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="..\DLMSReader_Multiplatform.Shared\wwwroot\scripts\logHelpers.js"
-				 Link="_content\DLMSReader_Multiplatform.Shared\scripts\logHelpers.js" />
+		<Content Include="..\DLMSReader_Multiplatform.Shared\wwwroot\scripts\logHelpers.js" Link="_content\DLMSReader_Multiplatform.Shared\scripts\logHelpers.js" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Shared\" />
 	</ItemGroup>
 </Project>

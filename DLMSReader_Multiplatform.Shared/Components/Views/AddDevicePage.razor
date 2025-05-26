@@ -13,7 +13,7 @@
     </div>
 </div>
 
-<!-- Horní menu lišta -->
+<!-- Horni menu lista -->
 <div style="overflow-x:auto;white-space:nowrap;background-color:lightgray;padding:1px 0;position:sticky;top:0;z-index:500;">
     <div style="display:flex;flex-wrap:nowrap;gap:2px;padding:0 5px;">
         <button style="flex:0 0 auto;background:none;border:2px solid black;color:black;font-size:16px;" @onclick="@(() => SelectMenu("MainSettings"))">Main settings</button>
@@ -175,7 +175,7 @@ else if (SelectedMenu == "Advanced")
 
     protected override void OnInitialized()
     {
-        RefreshComPorts();   // načíst při otevření stránky
+        RefreshComPorts();   // nacist pri otevreni stranky
     }
 
     private string SelectedMenu = "MainSettings";
@@ -198,15 +198,12 @@ else if (SelectedMenu == "Advanced")
         if ((NewInterfaceType is InterfaceType.HDLC or InterfaceType.HdlcWithModeE) &&
         string.IsNullOrWhiteSpace(SelectedPort))
         {
-            //Warning = "You have to select a serial port.";
-            //return;
             SelectedPort = "Not selected!!!"; //Zatim takto nechame pro debuging
-            
         }
 
         var newDevice = NewInterfaceType switch
         {
-            //Síťový WRAPPER (TCP/UDP)
+            //Sitový WRAPPER (TCP/UDP)
             InterfaceType.WRAPPER =>
                 new DLMSDeviceModel(
                     NewName,
@@ -218,7 +215,7 @@ else if (SelectedMenu == "Advanced")
                     NewLogicalServerAddress,
                     NewPhysicalServerAddress),
 
-            //Obě sériové varianty – klasické HDLC i HDLC s Mode E
+            //Obe seriove varianty – klasicke HDLC i HDLC s Mode E
             InterfaceType.HDLC or InterfaceType.HdlcWithModeE =>
                 new DLMSDeviceModel(
                     NewName,
@@ -263,7 +260,7 @@ else if (SelectedMenu == "Advanced")
         }
         catch
         {
-            ComPorts.Clear();       // neočekávané selhání → vyprázdni seznam
+            ComPorts.Clear();       // neocekavane selhani → vyprazdni seznam
         }
     }
 }
@@ -292,12 +289,12 @@ else if (SelectedMenu == "Advanced")
     gap: 5px 1px;
     align-items: flex-start;
     padding: 20px;
-    max-width: 800px; /* omezeni sirky */
+    max-width: 800px; 
     margin: 0 auto;
     }
 
     .form-item {
-        display: contents; /* umožní label + input být vedle sebe v gridu */
+        display: contents; /* umozní label + input byt vedle sebe v gridu */
     }
 
         .form-item label {

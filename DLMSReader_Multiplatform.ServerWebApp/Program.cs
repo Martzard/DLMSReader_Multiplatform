@@ -8,7 +8,7 @@ using System.Reflection.PortableExecutable;
 var builder = WebApplication.CreateBuilder(args);
 
 // Blazor Server
-builder.Services.AddRazorPages();        // kvůli _Host.cshtml
+builder.Services.AddRazorPages();        // kvuli _Host.cshtml
 builder.Services.AddServerSideBlazor();  // websocket circuit
 
 // moje sluzby
@@ -34,6 +34,6 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.MapBlazorHub();                 // /_blazor websocket
-app.MapFallbackToPage("/_Host");    // host-stránka s komponentou
+app.MapFallbackToPage("/_Host");    // host-stranka s komponentou
 
 app.Run();
