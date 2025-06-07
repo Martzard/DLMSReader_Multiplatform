@@ -23,6 +23,15 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data.Entities
         public int PhysicalServerAddress { get; set; }
 
 
+
+        public bool IsSecure { get; set; }
+        public string? SecurityMethod { get; set; }
+        public string? SecuritySuite { get; set; }
+        public string? BlockCipherKey { get; set; }
+        public string? AuthenticationKey { get; set; }
+
+
+
         public string? ObjectsXml { get; set; }
     }
 }

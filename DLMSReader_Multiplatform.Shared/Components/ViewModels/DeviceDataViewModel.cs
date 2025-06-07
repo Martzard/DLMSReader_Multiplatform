@@ -17,11 +17,11 @@ public class DeviceDataViewModel : INotifyPropertyChanged
     {
         _dbService = dbService;
 
-        //Načteme zařízení z DB při spuštění
+        //Nacteme zarizení z DB pri spusteni
         var devicesFromDb = _dbService.GetAllDevices();
         AllDevices = new ObservableCollection<DLMSDeviceModel>(devicesFromDb);
 
-        // Načteme objektovou strukturu k jednotlivým zařízením
+        // Nacteme objektovou strukturu k jednotlivym zarizenim
         foreach (var device in AllDevices)
         {
             var storedObjects = _dbService.LoadDeviceObjectsFromXml(device.Id);
@@ -31,7 +31,7 @@ public class DeviceDataViewModel : INotifyPropertyChanged
             }
         }
 
-        // Nastavíme první jako výchozí
+        // Nastavime prvni jako vychozi
         SelectedDevice = AllDevices.FirstOrDefault();
     }
 
@@ -103,7 +103,7 @@ public class DeviceDataViewModel : INotifyPropertyChanged
     {
         if (newDevice != null)
         {
-            _dbService.SaveDevice(newDevice); //uloží do DB (insert nebo update)
+            _dbService.SaveDevice(newDevice); //ulozi do DB (insert nebo update)
             AllDevices.Add(newDevice);
             SelectedDevice = newDevice;
             OnPropertyChanged(nameof(AllDevices));
@@ -116,7 +116,7 @@ public class DeviceDataViewModel : INotifyPropertyChanged
         {
             var deviceToRemove = SelectedDevice;
 
-            _dbService.DeleteDevice(deviceToRemove.Id); //smaže z DB
+            _dbService.DeleteDevice(deviceToRemove.Id); //smaze z DB
             AllDevices.Remove(deviceToRemove);
 
             SelectedDevice = AllDevices.FirstOrDefault();

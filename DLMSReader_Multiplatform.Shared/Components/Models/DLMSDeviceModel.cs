@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.IO.Ports;
 using Gurux.DLMS;
 using Gurux.DLMS.Enums;
+using Gurux.DLMS.Objects.Enums;
 
 namespace DLMSReader_Multiplatform.Shared.Components.Models;
 
@@ -26,6 +27,79 @@ public class DLMSDeviceModel : INotifyPropertyChanged
         private int logicalServerAddress;
         private int physicalServerAddress;
 
+        private bool isSecure;
+        private Security securityMethod;
+        private SecuritySuite securitySuite;
+        private string blockCipherKey;
+        private string authenticationKey;
+
+
+    public string AuthenticationKey
+    {
+        get => authenticationKey;
+        set
+        {
+            if (authenticationKey != value)
+            {
+                authenticationKey = value;
+                OnPropertyChanged(nameof(AuthenticationKey));
+            }
+        }
+    }
+    public string BlockCipherKey
+    {
+        get => blockCipherKey;
+        set
+        {
+            if (blockCipherKey != value)
+            {
+                blockCipherKey = value;
+                OnPropertyChanged(nameof(BlockCipherKey));
+            }
+        }
+    }
+
+    public SecuritySuite SecuritySuite
+    {
+        get => securitySuite;
+        set
+        {
+            if (securitySuite != value)
+            {
+                securitySuite = value;
+                OnPropertyChanged(nameof(SecuritySuite));
+            }
+        }
+    }
+
+    public Security SecurityMethod
+    {
+        get => securityMethod;
+        set
+        {
+            if (securityMethod != value)
+            {
+                securityMethod = value;
+                OnPropertyChanged(nameof(SecurityMethod));
+            }
+        }
+    }
+
+    public bool IsSecure
+    {
+        get => isSecure;
+        set
+        {
+            if (isSecure != value)
+            {
+                isSecure = value;
+                OnPropertyChanged(nameof(IsSecure));
+            }
+        }
+    }
+
+
+
         private ObservableCollection<GXDLMSObject> deviceObjects = new ObservableCollection<GXDLMSObject>();
         public ObservableCollection<GXDLMSObject> DeviceObjects
         {
@@ -45,9 +119,7 @@ public class DLMSDeviceModel : INotifyPropertyChanged
 
         }
 
-        /// <summary>
-        /// Konstruktor pro zařízení typu WRAPPER.
-        /// </summary>
+        //Konstruktor pro zarizeni typu WRAPPER.
         public DLMSDeviceModel(
             string name,
             string serverAddress,
@@ -56,7 +128,13 @@ public class DLMSDeviceModel : INotifyPropertyChanged
             bool logicalNameReferencing,
             int clientAddress,
             int logicalServerAddress,
-            int physicalServerAddress)
+            int physicalServerAddress,
+            bool isSecure,
+            Security securityMethod,
+            SecuritySuite securitySuite,
+            string blockCipherKey,
+            string authenticationKey
+            )
         {
             Name = name;
             ServerAddress = serverAddress;
@@ -66,11 +144,15 @@ public class DLMSDeviceModel : INotifyPropertyChanged
             ClientAddress = clientAddress;
             LogicalServerAddress = logicalServerAddress;
             PhysicalServerAddress = physicalServerAddress;
+            IsSecure = isSecure;
+            SecurityMethod = securityMethod;
+            SecuritySuite = securitySuite;
+            BlockCipherKey = blockCipherKey;
+            AuthenticationKey = authenticationKey;
         }
 
-        /// <summary>
-        /// Konstruktor pro zařízení typu HDLC nebo HdlcWithModeE.
-        /// </summary>
+
+        //Konstruktor HDLC nebo HdlcWithModeE.
         public DLMSDeviceModel(
             string name,
             string serialPort,
@@ -82,7 +164,12 @@ public class DLMSDeviceModel : INotifyPropertyChanged
             bool logicalNameReferencing,
             int clientAddress,
             int logicalServerAddress,
-            int physicalServerAddress)
+            int physicalServerAddress,
+            bool isSecure,
+            Security securityMethod,
+            SecuritySuite securitySuite,
+            string blockCipherKey,
+            string authenticationKey)
         {
             Name = name;
             SerialPort = serialPort;
@@ -95,7 +182,12 @@ public class DLMSDeviceModel : INotifyPropertyChanged
             ClientAddress = clientAddress;
             LogicalServerAddress = logicalServerAddress;
             PhysicalServerAddress = physicalServerAddress;
-        }
+            IsSecure = isSecure;
+            SecurityMethod = securityMethod;
+            SecuritySuite = securitySuite;
+            BlockCipherKey = blockCipherKey;
+            AuthenticationKey = authenticationKey;
+    }
 
 
         private int id;
@@ -148,7 +240,7 @@ public class DLMSDeviceModel : INotifyPropertyChanged
                 {
                     port = value;
                     OnPropertyChanged(nameof(Port));
-                    OnPropertyChanged(nameof(CollectionViewDetailString)); // Aktualizace IPPortDetail
+                    OnPropertyChanged(nameof(CollectionViewDetailString));
                 }
             }
         }
@@ -246,7 +338,7 @@ public class DLMSDeviceModel : INotifyPropertyChanged
             }
         }
 
-        // Vlastnost pro sledování výběru
+        // Vlastnost pro sledovani vyberu
         public bool IsSelected
         {
             get => isSelected;

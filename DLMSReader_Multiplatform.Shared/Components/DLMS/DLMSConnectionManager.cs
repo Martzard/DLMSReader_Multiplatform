@@ -66,7 +66,7 @@ public class DLMSConnectionManager
                     return retrievedObject;
                 }
 
-                Thread.Sleep(1000); // Některé měřiče to prý vyžadují
+                Thread.Sleep(1000); // Nektere merice to pry vyzaduji
 
                 reader.InitializeConnection();
                 reader.GetAssociationView(settings.outputFile);

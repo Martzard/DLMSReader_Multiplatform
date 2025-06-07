@@ -4,6 +4,7 @@
 @using DLMSReader_Multiplatform.Shared.Components.Enums
 @using System.IO.Ports;
 @using Gurux.DLMS.Enums
+@using Gurux.DLMS.Objects.Enums
 @inject DeviceDataViewModel ViewModel
 @inject NavigationManager Nav
 
@@ -89,7 +90,7 @@
             <div class="form-item">
                 <label>Baud Rate:</label>
                 <select @bind="NewBaudRate">
-                    @foreach (BaudRate rate in Enum.GetValues(typeof(BaudRate)))
+                    @foreach (Enums.BaudRate rate in Enum.GetValues(typeof(Enums.BaudRate)))
                     {
                         <option value="@(rate)">@(rate)</option>
                     }
@@ -130,10 +131,50 @@
 
 else if (SelectedMenu == "Security")
 {
-    <div style="padding:20px;">
-        <h4>Security Settings</h4>
-        <p>Now just placeholde for future security settings</p>
+    <h4>Security Settings</h4>
+
+    <div class="checkbox-item">
+        <label>
+            Use security settings
+            <input type="checkbox" @bind="NewIsSecure" style="margin-right:8px;" />
+        </label>
     </div>
+
+    <div class="form-grid">
+
+        <div class="form-item">
+            <label>Block cipher key</label>
+            <input @bind="NewBlockCipherKey" />
+        </div>
+
+        <div class="form-item">
+            <label>Authentication key:</label>
+            <input @bind="NewAuthenticationKey" />
+        </div>
+
+        <div class="form-item">
+            <label>Security Method</label>
+            <select @bind="NewSecurityMethod">
+                @foreach (Security s in Enum.GetValues(typeof(Security)))
+                {
+                    <option value="@s">@s</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-item">
+            <label>Security Suite</label>
+            <select @bind="NewSecuritySuite">
+                @foreach (SecuritySuite s in Enum.GetValues(typeof(SecuritySuite)))
+                {
+                    <option value="@s">@s</option>
+                }
+            </select>
+        </div>
+
+    </div>
+    
+
 }
 else if (SelectedMenu == "Advanced")
 {
@@ -152,13 +193,21 @@ else if (SelectedMenu == "Advanced")
 
 
 @code {
+    //security settings--------------
+    private bool NewIsSecure = false;
+    private Security NewSecurityMethod = Security.AuthenticationEncryption;
+    private SecuritySuite NewSecuritySuite = SecuritySuite.Suite2;
+    private string NewBlockCipherKey = "";
+    private string NewAuthenticationKey = "";
+    //-------------------------------
+
     private string NewName = "";
     private string NewServerAddress = "127.0.0.1";
     private int NewPort = 4059;
     private InterfaceType NewInterfaceType = InterfaceType.WRAPPER;
     private bool NewLogicalNameReferencing = true;
 
-    private BaudRate NewBaudRate = BaudRate.B9600;
+    private Enums.BaudRate NewBaudRate = Enums.BaudRate.B9600;
 
     private int NewDataBits = 8;
     private System.IO.Ports.StopBits NewStopBits = System.IO.Ports.StopBits.One;
@@ -201,6 +250,7 @@ else if (SelectedMenu == "Advanced")
             SelectedPort = "Not selected!!!"; //Zatim takto nechame pro debuging
         }
 
+
         var newDevice = NewInterfaceType switch
         {
             //Sitový WRAPPER (TCP/UDP)
@@ -213,7 +263,12 @@ else if (SelectedMenu == "Advanced")
                     NewLogicalNameReferencing,
                     NewClientAddress,
                     NewLogicalServerAddress,
-                    NewPhysicalServerAddress),
+                    NewPhysicalServerAddress,
+                    NewIsSecure,
+                    NewSecurityMethod,
+                    NewSecuritySuite,
+                    NewBlockCipherKey,
+                    NewAuthenticationKey),
 
             //Obe seriove varianty – klasicke HDLC i HDLC s Mode E
             InterfaceType.HDLC or InterfaceType.HdlcWithModeE =>
@@ -228,7 +283,12 @@ else if (SelectedMenu == "Advanced")
                     NewLogicalNameReferencing,
                     NewClientAddress,
                     NewLogicalServerAddress,
-                    NewPhysicalServerAddress),
+                    NewPhysicalServerAddress,
+                    NewIsSecure,
+                    NewSecurityMethod,
+                    NewSecuritySuite,
+                    NewBlockCipherKey,
+                    NewAuthenticationKey),
 
             //Pojistka pro budoucí hodnoty enumu... zatim nejsou jine nez vyse zminene podporovany
             _ => throw new NotSupportedException(

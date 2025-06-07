@@ -41,7 +41,7 @@ public class DeviceConnectionViewModel
 
     //konstruktor pro zavolani natvrdo.... momentalne nepouzivane
     public DeviceConnectionViewModel(DLMSDeviceModel device, DeviceDatabaseService dbService, DLMSConnectionManager connectionManager, ILogService log)
-        : this(dbService, connectionManager, log)          // zavolá první konstruktor?
+        : this(dbService, connectionManager, log)          // zavolá prvni konstruktor
     {
         WithDevice(device);                                // A rovnou nastavime zarizeni
     }

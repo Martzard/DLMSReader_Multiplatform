@@ -6,6 +6,8 @@ using Gurux.Net;
 using DLMSReader_Multiplatform.Shared.Components.Models;
 using Gurux.Serial;
 using System.Diagnostics;
+using Gurux.DLMS.Secure;
+using Gurux.DLMS.Objects;
 
 namespace DLMSReader_Multiplatform.Shared.Components.DLMS;
 
@@ -13,7 +15,8 @@ public class Settings
 {
     public IGXMedia? media { get; set; }
     public TraceLevel trace { get; set; } = TraceLevel.Verbose;
-    public GXDLMSClient client { get; set; } = new(true);
+    public GXDLMSSecureClient client { get; set; } = new(true);
+
     public string? invocationCounter { get; set; }
     public List<KeyValuePair<string, int>> readObjects { get; set; } = new();
     public string? outputFile { get; set; }
@@ -37,6 +40,22 @@ public class Settings
                     net.HostName = device.ServerAddress;
                     net.Port = device.Port;
                 }
+
+                if (device.IsSecure == true)
+                {
+                    settings.client.Ciphering.Security = device.SecurityMethod;
+                    settings.client.Ciphering.SecuritySuite = device.SecuritySuite;
+                    settings.client.Ciphering.AuthenticationKey = GXCommon.HexToBytes(device.AuthenticationKey);
+                    settings.client.Ciphering.BlockCipherKey = GXCommon.HexToBytes(device.BlockCipherKey);
+                    //settings.client.Ciphering.DedicatedKey = GXCommon.HexToBytes("484C535F5368617265645365636B6579484C535F5368617265645365636B6579");
+                    settings.client.Password = GXCommon.HexToBytes("484C535F5368617265645365636B6579484C535F5368617265645365636B6579");
+                    settings.client.Authentication = Authentication.HighSHA256;
+                    settings.client.ClientAddress = 1;
+                    settings.client.ServerAddress = 1;
+                    settings.invocationCounter = "0.0.43.1.1.255";
+                    //settings.invocationCounter.
+                }
+
 
                 settings.client.UseLogicalNameReferencing = device.LogicalNameReferencing;
                 settings.client.InterfaceType = device.InterfaceType;

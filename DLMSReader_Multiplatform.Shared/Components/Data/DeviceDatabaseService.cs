@@ -2,6 +2,7 @@
 using DLMSReader_Multiplatform.Shared.Components.Models;
 using Gurux.DLMS.Enums;
 using Gurux.DLMS.Objects;
+using Gurux.DLMS.Objects.Enums;
 using SQLite;
 using System.IO.Ports;
 
@@ -16,14 +17,13 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
             // Cesta k SQLite databazi
             //string dbPath = pathProvider.GetDatabasePath();
 
-            // Otevře nebo vytvori databazi
+            // Otevre nebo vytvori databazi
             _db = new SQLiteConnection(dbPath);
 
             // Vytvori tabulku, pokud jeste neexistuje
             _db.CreateTable<DeviceEntity>();
         }
 
-       
         // Nacte vsechna ulozena zarizeni z DB.
         public List<DLMSDeviceModel> GetAllDevices()
         {
@@ -36,14 +36,13 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
             }
             return devices;
         }
-
         public GXDLMSObjectCollection LoadDeviceObjectsFromXml(int deviceId)
         {
             var entity = _db.Table<DeviceEntity>().FirstOrDefault(o => o.Id == deviceId);
             var objects = new GXDLMSObjectCollection();
             if (entity == null)
             {
-                //TODO vyresit jestli budu psat do konzole nebo to necham takto...
+                //TODO vyresit jestli psat do konzole nebo nechat takto...
                 throw new Exception($"Device s ID {deviceId} nebyl nalezen.");
             }
             else if (string.IsNullOrEmpty(entity.ObjectsXml))
@@ -62,7 +61,6 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
             objects = GXDLMSObjectCollection.Load(stream);
             return objects;
         }
-
         
         // Ulozi nove zarizeni nebo aktualizuje existujici.
         public void SaveDevice(DLMSDeviceModel device)
@@ -93,7 +91,6 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
                 _db.Update(entity);
             }
         }
-
        
         // Odstrani zarizeni podle ID.
         public void DeleteDevice(int deviceId)
@@ -120,6 +117,11 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
                     ClientAddress = e.ClientAddress,
                     LogicalServerAddress = e.LogicalServerAddress,
                     PhysicalServerAddress = e.PhysicalServerAddress,
+                    IsSecure = e.IsSecure,
+                    SecurityMethod = Enum.Parse<Security>(e.SecurityMethod),
+                    SecuritySuite = Enum.Parse<SecuritySuite>(e.SecuritySuite),
+                    BlockCipherKey = e.BlockCipherKey,
+                    AuthenticationKey = e.AuthenticationKey,
                 };
             }
             else
@@ -135,6 +137,11 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
                     ClientAddress = e.ClientAddress,
                     LogicalServerAddress = e.LogicalServerAddress,
                     PhysicalServerAddress = e.PhysicalServerAddress,
+                    IsSecure = e.IsSecure,
+                    SecurityMethod = Enum.Parse<Security>(e.SecurityMethod),
+                    SecuritySuite = Enum.Parse<SecuritySuite>(e.SecuritySuite),
+                    BlockCipherKey = e.BlockCipherKey,
+                    AuthenticationKey = e.AuthenticationKey,
                 };
             }
         }
@@ -157,7 +164,12 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
                     LogicalNameReferencing = d.LogicalNameReferencing,
                     ClientAddress = d.ClientAddress,
                     LogicalServerAddress = d.LogicalServerAddress,
-                    PhysicalServerAddress = d.PhysicalServerAddress
+                    PhysicalServerAddress = d.PhysicalServerAddress,
+                    IsSecure = d.IsSecure,
+                    SecurityMethod = d.SecurityMethod.ToString(),
+                    SecuritySuite = d.SecuritySuite.ToString(),
+                    BlockCipherKey = d.BlockCipherKey,
+                    AuthenticationKey = d.AuthenticationKey
                 };
             }
             else
@@ -172,7 +184,12 @@ namespace DLMSReader_Multiplatform.Shared.Components.Data
                     LogicalNameReferencing = d.LogicalNameReferencing,
                     ClientAddress = d.ClientAddress,
                     LogicalServerAddress = d.LogicalServerAddress,
-                    PhysicalServerAddress = d.PhysicalServerAddress
+                    PhysicalServerAddress = d.PhysicalServerAddress,
+                    IsSecure = d.IsSecure,
+                    SecurityMethod = d.SecurityMethod.ToString(),
+                    SecuritySuite = d.SecuritySuite.ToString(),
+                    BlockCipherKey = d.BlockCipherKey,
+                    AuthenticationKey = d.AuthenticationKey
                 };
             }
         }

@@ -7,7 +7,9 @@ using Gurux.Serial;
 using System.Diagnostics;
 using System.IO.Ports;
 using System.Text;
-using DLMSReader_Multiplatform.Shared.Components.Services; // <<– ILogService
+using DLMSReader_Multiplatform.Shared.Components.Services;
+using Gurux.DLMS.Secure;
+using Gurux.Net;
 
 
 namespace DLMSReader_Multiplatform.Shared.Components.DLMS;
@@ -27,10 +29,9 @@ public class GXDLMSNonSecReader
     /// </summary>
     public int RetryCount = 3;
         
-    
     private readonly IGXMedia     Media;
     private readonly TraceLevel   Trace;
-    private readonly GXDLMSClient Client;
+    private readonly GXDLMSSecureClient Client;
     // Invocation counter (frame counter).
     private readonly string InvocationCounter;
     private readonly ILogService _log;
@@ -42,7 +43,7 @@ public class GXDLMSNonSecReader
     public Action<object> OnNotification;
 
 
-    public GXDLMSNonSecReader(GXDLMSClient nonSecClient, IGXMedia media, TraceLevel trace, string invocationCounter, ILogService log)
+    public GXDLMSNonSecReader(GXDLMSSecureClient nonSecClient, IGXMedia media, TraceLevel trace, string invocationCounter, ILogService log)
     {
         Client = nonSecClient;
         Media = media;
@@ -65,6 +66,7 @@ public class GXDLMSNonSecReader
                 GetScalersAndUnits();
                 GetProfileGenericColumns();
             }
+            GetCompactData();
             GetReadOut();
             GetProfileGenerics();
             if (outputFile != null)
@@ -89,7 +91,7 @@ public class GXDLMSNonSecReader
 
     public GXDLMSObject ReadSingleObject(GXDLMSObject selectedObject)
     {
-        //Tady zatim vsechno resime jen s LogicalName... do budoucna je mozne ze budeme muset implementovat taky SN aby to bylo kompletni reseni
+        //Tady zatim vsechno resime jen s LogicalName... do budoucna je mozne ze budeme muset implementovat taky SN
         GXDLMSObject obj = Client.Objects.FindByLN(ObjectType.None, selectedObject.LogicalName);
         if (obj == null)
         {
@@ -153,6 +155,67 @@ public class GXDLMSNonSecReader
             Console.WriteLine("Can't read " + it.ToString() + ". Not enought acccess rights.");
         }
         return null;
+    }
+
+    public void GetCompactData()
+    {
+        //Find compact data objects and read them.
+        foreach (GXDLMSCompactData it in Client.Objects.GetObjects(ObjectType.CompactData))
+        {
+            //If trace is info.
+            if (Trace > TraceLevel.Warning)
+            {
+                _log.Write("-------- Reading " + it.GetType().Name + " " + it.Name + " " + it.Description);
+                Console.WriteLine("-------- Reading " + it.GetType().Name + " " + it.Name + " " + it.Description);
+            }
+            //Read Capture objects.
+            if (Client.CanRead(it, 3))
+            {
+                Read(it, 3);
+            }
+            //Read template description.
+            if (Client.CanRead(it, 5))
+            {
+                Read(it, 5);
+            }
+            //Read buffer.
+            if (Client.CanRead(it, 2))
+            {
+                Read(it, 2);
+            }
+            Standard standard = Client.Standard;
+            List<DataType> types = new List<DataType>();
+            foreach (var c in it.CaptureObjects)
+            {
+                types.Add(c.Key.GetUIDataType(c.Value.AttributeIndex));
+            }
+            List<object> rows = GXDLMSCompactData.GetData(it.TemplateDescription, it.Buffer);
+            //Convert cols to readable format.
+            foreach (GXStructure row in rows)
+            {
+                for (int col = 0; col != types.Count; ++col)
+                {
+                    if (types[col] != DataType.None)
+                    {
+                        row[col] = GXDLMSClient.ChangeType(row[col] as byte[], types[col]);
+                    }
+                    else if (row[col] is GXArray)
+                    {
+                        row[col] = GXDLMSTranslator.ValueToXml(row[col]);
+                    }
+                    else if (row[col] is GXStructure)
+                    {
+                        row[col] = GXDLMSTranslator.ValueToXml(row[col]);
+                    }
+                    else if (row[col] is byte[] b)
+                    {
+                        row[col] = GXDLMSTranslator.ToHex(b);
+                    }
+                }
+                _log.Write(row.ToString());
+                Console.WriteLine(row);
+            }
+        }
     }
 
     /// <summary>
@@ -237,6 +300,124 @@ public class GXDLMSNonSecReader
         }
     }
 
+    /// <summary>
+    /// Read Invocation counter (frame counter) from the meter and update it.
+    /// </summary>
+    private void UpdateFrameCounter()
+    {
+        //Read frame counter if GeneralProtection is used.
+        if (!string.IsNullOrEmpty(InvocationCounter) && Client.Ciphering != null && Client.Ciphering.Security != Security.None)
+        {
+            //Media settings are saved and they are restored when HDLC with mode E is used.
+            string mediaSettings = Media.Settings;
+            InitializeOpticalHead();
+            byte[] data;
+            GXReplyData reply = new GXReplyData();
+            int add = Client.ClientAddress;
+            int serverAddress = Client.ServerAddress;
+            Authentication auth = Client.Authentication;
+            Security security = Client.Ciphering.Security;
+            Signing signing = Client.Ciphering.Signing;
+            byte[] challenge = Client.CtoSChallenge;
+            byte[] serverSystemTitle = Client.ServerSystemTitle;
+            try
+            {
+                Client.ServerSystemTitle = null;
+                Client.ClientAddress = 16;
+                Client.Authentication = Authentication.None;
+                Client.Ciphering.Security = Security.None;
+                Client.Ciphering.Signing = Signing.None;
+                if (Media is GXNet net && Client.InterfaceType == InterfaceType.CoAP)
+                {
+                    //Update Client Address.
+                    //Client SAP.
+                    Client.Coap.Options[65003] = (byte)Client.ClientAddress;
+                    //Server SAP
+                    Client.Coap.Options[65005] = (byte)1;
+                }
+                data = Client.SNRMRequest();
+                if (data != null)
+                {
+                    if (Trace > TraceLevel.Info)
+                    {
+                        Console.WriteLine("Send SNRM request." + GXCommon.ToHex(data, true));
+                    }
+                    ReadDataBlock(data, reply);
+                    if (Trace == TraceLevel.Verbose)
+                    {
+                        Console.WriteLine("Parsing UA reply." + reply.ToString());
+                    }
+                    //Has server accepted client.
+                    Client.ParseUAResponse(reply.Data);
+                    if (Trace > TraceLevel.Info)
+                    {
+                        Console.WriteLine("Parsing UA reply succeeded.");
+                    }
+                }
+                //Generate AARQ request.
+                //Split requests to multiple packets if needed.
+                //If password is used all data might not fit to one packet.
+                foreach (byte[] it in Client.AARQRequest())
+                {
+                    if (Trace > TraceLevel.Info)
+                    {
+                        Console.WriteLine("Send AARQ request", GXCommon.ToHex(it, true));
+                    }
+                    reply.Clear();
+                    ReadDataBlock(it, reply);
+                }
+                if (Trace > TraceLevel.Info)
+                {
+                    Console.WriteLine("Parsing AARE reply" + reply.ToString());
+                }
+                try
+                {
+                    //Parse reply.
+                    Client.ParseAAREResponse(reply.Data);
+                    reply.Clear();
+                    GXDLMSData d = new GXDLMSData(InvocationCounter);
+                    Read(d, 2);
+                    Client.Ciphering.InvocationCounter = 1 + Convert.ToUInt32(d.Value);
+                    Console.WriteLine("Invocation counter: " + Convert.ToString(Client.Ciphering.InvocationCounter));
+                    reply.Clear();
+                    Disconnect();
+                    //Reset media settings back to default.
+                    if (Client.InterfaceType == InterfaceType.HdlcWithModeE)
+                    {
+                        Media.Close();
+                        Media.Settings = mediaSettings;
+                    }
+                }
+                catch (Exception)
+                {
+                    Disconnect();
+                    throw;
+                }
+            }
+            finally
+            {
+                Client.ServerSystemTitle = serverSystemTitle;
+                Client.ClientAddress = add;
+                Client.ServerAddress = serverAddress;
+                Client.Authentication = auth;
+                Client.Ciphering.Security = security;
+                Client.CtoSChallenge = challenge;
+                Client.Ciphering.Signing = signing;
+                if (Media is GXNet && Client.InterfaceType == InterfaceType.CoAP)
+                {
+                    //Update Client Address.
+                    //Client SAP.
+                    Client.Coap.Options[65003] = (byte)Client.ClientAddress;
+                    //Server SAP
+                    Client.Coap.Options[65005] = (byte)Client.ServerAddress;
+                }
+                if (Client.PreEstablishedConnection)
+                {
+                    Client.NegotiatedConformance |= Conformance.GeneralProtection;
+                }
+            }
+        }
+    }
 
     /// <summary>
     /// Send IEC disconnect message.
@@ -507,6 +688,28 @@ public class GXDLMSNonSecReader
         _log.Write("Standard: " + Client.Standard);
         Console.WriteLine("Standard: " + Client.Standard);
 
+        if (Client.Ciphering.Security != Security.None)
+        {
+            _log.Write("Security: " + Client.Ciphering.Security);
+            Console.WriteLine("Security: " + Client.Ciphering.Security);
+
+            _log.Write("System title: " + GXCommon.ToHex(Client.Ciphering.SystemTitle, true));
+            Console.WriteLine("System title: " + GXCommon.ToHex(Client.Ciphering.SystemTitle, true));
+
+            _log.Write("Authentication key: " + GXCommon.ToHex(Client.Ciphering.AuthenticationKey, true));
+            Console.WriteLine("Authentication key: " + GXCommon.ToHex(Client.Ciphering.AuthenticationKey, true));
+
+            _log.Write("Block cipher key " + GXCommon.ToHex(Client.Ciphering.BlockCipherKey, true));
+            Console.WriteLine("Block cipher key " + GXCommon.ToHex(Client.Ciphering.BlockCipherKey, true));
+
+            if (Client.Ciphering.DedicatedKey != null)
+            {
+                _log.Write("Dedicated key: " + GXCommon.ToHex(Client.Ciphering.DedicatedKey, true));
+                Console.WriteLine("Dedicated key: " + GXCommon.ToHex(Client.Ciphering.DedicatedKey, true));
+            }
+        }
+        UpdateFrameCounter();
+
         InitializeOpticalHead();
         GXReplyData reply = new GXReplyData();
         SNRMRequest();
@@ -522,8 +725,8 @@ public class GXDLMSNonSecReader
                     string hex = GXCommon.ToHex(it, true);
                     string msg = $"Send AARQ request {hex}";
 
-                    _log.Write(msg);        // log do konzole ve vaší aplikaci
-                    Console.WriteLine(msg); // klasická konzole
+                    _log.Write(msg);        
+                    Console.WriteLine(msg);
                 }
 
                 reply.Clear();
@@ -690,8 +893,8 @@ public class GXDLMSNonSecReader
         }
         //Access services are available only for general protection.
         if ((Client.NegotiatedConformance & Conformance.Access) != 0 &&
-            (/*Client.Ciphering.Security == Security.None ||*/
-            (Client.NegotiatedConformance & Conformance.GeneralProtection) != 0))
+                (Client.Ciphering.Security == Security.None ||
+                (Client.NegotiatedConformance & Conformance.GeneralProtection) != 0))
         {
             List<GXDLMSAccessItem> list = new List<GXDLMSAccessItem>();
             foreach (GXDLMSObject it in objs)
@@ -1062,7 +1265,7 @@ public class GXDLMSNonSecReader
             {
                 if (!reply.IsStreaming())
                 {
-                    //WriteTrace("TX:\t" + DateTime.Now.ToLongTimeString() + "\t" + GXCommon.ToHex(data, true));
+                    WriteTrace("TX:\t" + DateTime.Now.ToLongTimeString() + "\t" + GXCommon.ToHex(data, true));
                     p.Reply = null;
                     Media.Send(data, null);
                 }
@@ -1343,8 +1546,8 @@ public class GXDLMSNonSecReader
                 //Release is call only for secured connections.
                 //All meters are not supporting Release and it's causing problems.
                 if (Client.InterfaceType == InterfaceType.WRAPPER ||
-                    (/*Client.Ciphering.Security != (byte)Security.None &&*/
-                    !Client.PreEstablishedConnection))
+                        (Client.Ciphering.Security != (byte)Security.None &&
+                        !Client.PreEstablishedConnection))
                 {
                     GXReplyData reply = new GXReplyData();
                     ReadDataBlock(Client.ReleaseRequest(), reply);
