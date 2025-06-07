@@ -71,6 +71,12 @@
                 @if (connectionVM?.SelectedObject != null)
                 {
                     <pre class="object-details">@connectionVM.ObjectDetailsString</pre>
+
+                    if (connectionVM.SelectedObject is GXDLMSDisconnectControl)
+                    {
+                        <button class="btn-top" @onclick="() => CallMethod(connectionVM.SelectedObject, 0)">Remote Disconnect</button>
+                        <button class="btn-top" @onclick="() => CallMethod(connectionVM.SelectedObject, 1)">Remote Reconnect</button>
+                    }
                 }
                 else
                 {
@@ -84,7 +90,7 @@
                     {
                         @line
 
-                        <br />
+                    <br />
                     }
                 </pre>
             </div>
@@ -206,7 +212,7 @@
     }
 
     .log-content {
-        white-space: pre-wrap; 
+        white-space: pre-wrap;
         word-break: break-all;
         overflow-wrap: anywhere;
     }
@@ -226,7 +232,7 @@
         font-size: .8rem;
         cursor: pointer;
         border-bottom: 1px solid #ccc;
-        white-space: normal; 
+        white-space: normal;
         overflow-wrap: anywhere;
         word-break: break-word;
     }
@@ -262,32 +268,29 @@
 
     /* ---------- desktop ≥768 px ------------------------------------------ */
     @@media (min-width:768px) {
-        .panels
+        .panels {
+            flex-direction: row;
+        }
 
-    {
-        flex-direction: row;
-    }
+        .sidebar {
+            position: static;
+            left: 0 !important;
+            height: 100%;
+            width: 240px;
+            flex: 0 0 240px;
+            min-width: 240px;
+            max-width: 240px;
+            border-right: 1px solid #ccc;
+            transition: none;
+        }
 
-    .sidebar {
-        position: static;
-        left: 0 !important;
-        height: 100%;
-        width: 240px;
-        flex: 0 0 240px;
-        min-width: 240px;
-        max-width: 240px;
-        border-right: 1px solid #ccc;
-        transition: none;
-    }
+        .btn-objects {
+            display: none;
+        }
 
-    .btn-objects {
-        display: none;
-    }
-
-    .desktop-only {
-        display: block;
-    }
-
+        .desktop-only {
+            display: block;
+        }
     }
 
     /* ---------- drobnosti ------------------------------------------------- */
@@ -336,6 +339,11 @@
             connectionVM.GetSelectedObjectText();
             StateHasChanged();
         }
+    }
+
+    private async Task CallMethod(GXDLMSObject obj, int methodId)
+    {
+        //todo
     }
 
     private void SelectObject(GXDLMSObject obj)

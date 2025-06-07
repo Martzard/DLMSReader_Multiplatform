@@ -89,6 +89,20 @@ public class GXDLMSNonSecReader
 
     }
 
+    public void BreakerDisconnect()
+    {
+        var disconnect = new GXDLMSDisconnectControl("0.0.96.3.10.255");
+        disconnect.RemoteDisconnect(Client);
+        ReadDataBlock(disconnect.RemoteDisconnect(Client), new GXReplyData());
+    }
+
+    public void BreakerReconnect()
+    {
+        var reconnect = new GXDLMSDisconnectControl("0.0.96.3.10.255");
+        reconnect.RemoteDisconnect(Client);
+        ReadDataBlock(reconnect.RemoteReconnect(Client), new GXReplyData());
+    }
+
     public GXDLMSObject ReadSingleObject(GXDLMSObject selectedObject)
     {
         //Tady zatim vsechno resime jen s LogicalName... do budoucna je mozne ze budeme muset implementovat taky SN
@@ -230,20 +244,20 @@ public class GXDLMSNonSecReader
         {
             if (Trace > TraceLevel.Info)
             {
-                _log.Write("Send SNRM request." + GXCommon.ToHex(data, true));              
+                _log.Write("Send SNRM request." + GXCommon.ToHex(data, true));
                 Console.WriteLine("Send SNRM request." + GXCommon.ToHex(data, true));
             }
             ReadDataBlock(data, reply);
             if (Trace == TraceLevel.Verbose)
             {
-                _log.Write("Parsing UA reply." + reply.ToString());  
+                _log.Write("Parsing UA reply." + reply.ToString());
                 Console.WriteLine("Parsing UA reply." + reply.ToString());
             }
             //Has server accepted client.
             Client.ParseUAResponse(reply.Data);
             if (Trace > TraceLevel.Info)
             {
-                _log.Write("Parsing UA reply succeeded.");    
+                _log.Write("Parsing UA reply succeeded.");
                 Console.WriteLine("Parsing UA reply succeeded.");
             }
         }
@@ -589,8 +603,8 @@ public class GXDLMSNonSecReader
 
             string msg = $"{DateTime.Now:HH:mm:ss}\tMoving to mode E. {hex}";
 
-            _log.Write(msg);          
-            Console.WriteLine(msg);  
+            _log.Write(msg);
+            Console.WriteLine(msg);
         }
         lock (Media.Synchronous)
         {
@@ -725,7 +739,7 @@ public class GXDLMSNonSecReader
                     string hex = GXCommon.ToHex(it, true);
                     string msg = $"Send AARQ request {hex}";
 
-                    _log.Write(msg);        
+                    _log.Write(msg);
                     Console.WriteLine(msg);
                 }
 

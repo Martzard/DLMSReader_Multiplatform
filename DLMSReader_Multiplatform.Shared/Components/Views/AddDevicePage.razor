@@ -141,6 +141,22 @@ else if (SelectedMenu == "Security")
     </div>
 
     <div class="form-grid">
+        <div class="form-item">
+            <label>Authentication</label>
+            <select @bind="NewAuthneticationMethod">
+                @foreach (Authentication s in Enum.GetValues(typeof(Authentication)))
+                {
+                    <option value="@s">@s</option>
+                }
+            </select>
+        </div>
+
+        <div class="form-item">
+            <label>Authentication Password</label>
+            <input @bind="NewAuthenticationPassword" />
+        </div>
+
+
 
         <div class="form-item">
             <label>Block cipher key</label>
@@ -173,7 +189,7 @@ else if (SelectedMenu == "Security")
         </div>
 
     </div>
-    
+
 
 }
 else if (SelectedMenu == "Advanced")
@@ -199,6 +215,8 @@ else if (SelectedMenu == "Advanced")
     private SecuritySuite NewSecuritySuite = SecuritySuite.Suite2;
     private string NewBlockCipherKey = "";
     private string NewAuthenticationKey = "";
+    private Authentication NewAuthneticationMethod = Authentication.None;
+    private string NewAuthenticationPassword = "";
     //-------------------------------
 
     private string NewName = "";
@@ -295,6 +313,9 @@ else if (SelectedMenu == "Advanced")
                      $"Interface {NewInterfaceType} Is not supported yet")
         };
 
+        newDevice.AuthenticationMethod = NewAuthneticationMethod;
+        newDevice.Password = NewAuthenticationPassword;
+
         ViewModel.AddDevice(newDevice);
         Nav.NavigateTo("/");
     }
@@ -349,7 +370,7 @@ else if (SelectedMenu == "Advanced")
     gap: 5px 1px;
     align-items: flex-start;
     padding: 20px;
-    max-width: 800px; 
+    max-width: 800px;
     margin: 0 auto;
     }
 

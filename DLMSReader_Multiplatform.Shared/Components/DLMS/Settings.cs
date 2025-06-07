@@ -47,11 +47,10 @@ public class Settings
                     settings.client.Ciphering.SecuritySuite = device.SecuritySuite;
                     settings.client.Ciphering.AuthenticationKey = GXCommon.HexToBytes(device.AuthenticationKey);
                     settings.client.Ciphering.BlockCipherKey = GXCommon.HexToBytes(device.BlockCipherKey);
-                    //settings.client.Ciphering.DedicatedKey = GXCommon.HexToBytes("484C535F5368617265645365636B6579484C535F5368617265645365636B6579");
-                    settings.client.Password = GXCommon.HexToBytes("484C535F5368617265645365636B6579484C535F5368617265645365636B6579");
-                    settings.client.Authentication = Authentication.HighSHA256;
-                    settings.client.ClientAddress = 1;
-                    settings.client.ServerAddress = 1;
+                    settings.client.Password = GXCommon.HexToBytes(device.Password);
+                    settings.client.Authentication = device.AuthenticationMethod;
+                    settings.client.ClientAddress = device.ClientAddress;
+                    settings.client.ServerAddress = GXDLMSClient.GetServerAddress(device.LogicalServerAddress, device.PhysicalServerAddress);
                     settings.invocationCounter = "0.0.43.1.1.255";
                     //settings.invocationCounter.
                 }

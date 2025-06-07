@@ -27,6 +27,9 @@ public class DLMSDeviceModel : INotifyPropertyChanged
         private int logicalServerAddress;
         private int physicalServerAddress;
 
+        private Authentication authenticationMethod;
+        private string password;
+
         private bool isSecure;
         private Security securityMethod;
         private SecuritySuite securitySuite;
@@ -81,6 +84,32 @@ public class DLMSDeviceModel : INotifyPropertyChanged
             {
                 securityMethod = value;
                 OnPropertyChanged(nameof(SecurityMethod));
+            }
+        }
+    }
+
+    public Authentication AuthenticationMethod
+    {
+        get => authenticationMethod;
+        set
+        {
+            if (authenticationMethod != value)
+            {
+                authenticationMethod = value;
+                OnPropertyChanged(nameof(AuthenticationMethod));
+            }
+        }
+    }
+
+    public string Password
+    {
+        get => password;
+        set
+        {
+            if (password != value)
+            {
+                password = value;
+                OnPropertyChanged(nameof(Password));
             }
         }
     }
