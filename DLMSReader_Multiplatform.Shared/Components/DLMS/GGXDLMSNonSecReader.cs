@@ -28,7 +28,7 @@ public class GXDLMSNonSecReader
     /// Retry count.
     /// </summary>
     public int RetryCount = 3;
-        
+
     private readonly IGXMedia     Media;
     private readonly TraceLevel   Trace;
     private readonly GXDLMSSecureClient Client;
@@ -89,18 +89,13 @@ public class GXDLMSNonSecReader
 
     }
 
-    public void BreakerDisconnect()
+    public bool CallObjectMethod(GXDLMSObject obj, int index)
     {
-        var disconnect = new GXDLMSDisconnectControl("0.0.96.3.10.255");
-        disconnect.RemoteDisconnect(Client);
-        ReadDataBlock(disconnect.RemoteDisconnect(Client), new GXReplyData());
-    }
+        var data = Client.Method(obj, index, null);
+        GXReplyData reply = new GXReplyData();
+        ReadDataBlock(data, reply);
 
-    public void BreakerReconnect()
-    {
-        var reconnect = new GXDLMSDisconnectControl("0.0.96.3.10.255");
-        reconnect.RemoteDisconnect(Client);
-        ReadDataBlock(reconnect.RemoteReconnect(Client), new GXReplyData());
+        return reply.Error == 0;
     }
 
     public GXDLMSObject ReadSingleObject(GXDLMSObject selectedObject)
